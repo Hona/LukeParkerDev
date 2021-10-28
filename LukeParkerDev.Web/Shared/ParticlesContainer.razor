@@ -1,0 +1,22 @@
+﻿@inject IJSRuntime _js
+
+<div class="particle-container" >
+    <div id="@_wrapperGuid" style="z-index: 0"></div>
+    @ChildContent
+</div>
+
+@code 
+{
+    private readonly Guid _wrapperGuid = Guid.NewGuid(); 
+    
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string? FileName { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await _js.InvokeVoidAsync("loadTsParticles", _wrapperGuid, $"tsparticles/{FileName}.json");
+    }
+}

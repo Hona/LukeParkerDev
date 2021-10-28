@@ -1,0 +1,58 @@
+﻿<MudGrid Justify="Justify.Center">
+    <MudItem sm="12" md="7">
+        @if (!Inverted)
+        {
+            @WideContent
+        }
+        else
+        {
+            @NarrowContentWrapper
+        }
+    </MudItem>
+    <MudItem sm="12" md="1" Style="">
+        <MudHidden Breakpoint="Breakpoint.SmAndDown">
+            <div style="width: 100%; height: 100%" class="d-flex justify-center align-center">
+                <MudDivider Vertical DividerType="DividerType.Middle"/>
+            </div>
+        </MudHidden>
+        <MudHidden Breakpoint="Breakpoint.SmAndDown" Invert>
+            <MudDivider DividerType="DividerType.Middle"/>
+        </MudHidden>
+    </MudItem>
+    <MudItem sm="12" md="4">
+        @if (!Inverted)
+        {
+            @NarrowContentWrapper
+        }
+        else
+        {
+            @WideContent
+        }
+    </MudItem>
+</MudGrid>
+
+@code
+{
+    [Parameter]
+    public RenderFragment WideContent { get; set; }
+    
+    [Parameter]
+    public RenderFragment NarrowContent { get; set; }
+    
+    [Parameter]
+    public bool Inverted { get; set; }
+
+    private RenderFragment NarrowContentWrapper =>
+        @<div>
+            <MudHidden Breakpoint="Breakpoint.SmAndDown">
+                <div class="pa-4">
+                    @NarrowContent
+                </div>
+            </MudHidden>
+            <MudHidden Breakpoint="Breakpoint.SmAndDown" Invert>
+                <div class="pl-4 pr-4">
+                    @NarrowContent
+                </div>
+            </MudHidden>
+        </div>;
+}

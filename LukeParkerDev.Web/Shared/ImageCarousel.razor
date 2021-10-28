@@ -1,0 +1,11 @@
+﻿<MudCarousel ItemsSource="ImageSrcs">
+    <ItemTemplate>
+        <img src="@context"/>    
+    </ItemTemplate>
+</MudCarousel>
+
+@code
+{
+    [Parameter]
+    public List<string>? ImageSrcs { get; set; }
+}

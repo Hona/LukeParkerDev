@@ -1,0 +1,18 @@
+﻿@inherits LayoutComponentBase
+
+<MudLayout>
+    <MudAppBar Elevation="1">
+        <MaxWidthContainer Class="d-flex flex-row align-center">
+            <MudText Typo="Typo.h5" Class="ml-3" Inline>LukeParker.Dev</MudText>
+            <MudSpacer/>
+            <MenuDrawerButton/>
+        </MaxWidthContainer>
+    </MudAppBar>
+    <MudMainContent Style="overflow-x: hidden">
+        <MaxWidthContainer>
+            @Body
+        </MaxWidthContainer>
+    </MudMainContent>
+</MudLayout>
+
+<Theme />
