@@ -1,0 +1,33 @@
+/* /Pages/Index.razor.rz.scp.css */
+.landing-container[b-4bccyimaye] {
+    height: calc(100vh - var(--mud-appbar-height));
+    max-height: 100vh;
+    position: relative;
+}
+
+.particle-container > *[b-4bccyimaye] {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* /Shared/ImageCarousel.razor.rz.scp.css */
+img[b-j1qv55if3x] {
+    width: 100%; 
+    aspect-ratio: 16/9
+}
+/* /Shared/ParticlesContainer.razor.rz.scp.css */
+.particle-container[b-oqelp5uh9p] {
+    position: relative;
+}
+
+.particle-container > *[b-oqelp5uh9p] {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
