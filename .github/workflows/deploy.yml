@@ -18,6 +18,12 @@ jobs:
         include-prerelease: true
     - name: Publish 
       run: dotnet publish LukeParkerDev.Web/LukeParkerDev.Web.csproj -c Release -o release --nologo
+    - name: Deploy to CloudFlare Pages
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: cf-pages
+        FOLDER: release/wwwroot
     # Changes the base-tag in index.html from '/' to 'LukeParkerDev' to match GitHub Pages repository subdirectory
     - name: Change base-tag in index.html from / to LukeParkerDev
       run: sed -i 's/<base href="\/" \/>/<base href="\/LukeParkerDev\/" \/>/g' release/wwwroot/index.html
