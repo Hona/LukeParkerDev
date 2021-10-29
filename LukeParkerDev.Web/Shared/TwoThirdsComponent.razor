@@ -1,14 +1,12 @@
 ﻿<MudGrid Justify="Justify.Center">
-    <MudItem sm="12" md="7">
-        @if (!Inverted)
-        {
-            @WideContent
-        }
-        else
-        {
-            @NarrowContentWrapper
-        }
-    </MudItem>
+    @if (!Inverted)
+    {
+        @WideContainer
+    }
+    else
+    {
+        @NarrowContainer
+    }
     <MudItem sm="12" md="1" Style="">
         <MudHidden Breakpoint="Breakpoint.SmAndDown">
             <div style="width: 100%; height: 100%" class="d-flex justify-center align-center">
@@ -19,26 +17,24 @@
             <MudDivider DividerType="DividerType.Middle"/>
         </MudHidden>
     </MudItem>
-    <MudItem sm="12" md="4">
-        @if (!Inverted)
-        {
-            @NarrowContentWrapper
-        }
-        else
-        {
-            @WideContent
-        }
-    </MudItem>
+    @if (!Inverted)
+    {
+        @NarrowContainer
+    }
+    else
+    {
+        @WideContainer
+    }
 </MudGrid>
 
 @code
 {
     [Parameter]
-    public RenderFragment WideContent { get; set; }
-    
+    public RenderFragment? WideContent { get; set; }
+
     [Parameter]
-    public RenderFragment NarrowContent { get; set; }
-    
+    public RenderFragment? NarrowContent { get; set; }
+
     [Parameter]
     public bool Inverted { get; set; }
 
@@ -55,4 +51,14 @@
                 </div>
             </MudHidden>
         </div>;
+
+    private RenderFragment NarrowContainer =>
+        @<MudItem sm="12" md="4">
+            @NarrowContentWrapper
+        </MudItem>;
+
+    private RenderFragment WideContainer =>
+        @<MudItem sm="12" md="7">
+            @WideContent
+        </MudItem>;
 }

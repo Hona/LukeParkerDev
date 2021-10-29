@@ -55,6 +55,21 @@
             </NarrowContent>
         </TwoThirdsComponent>
     </MudCard>
+
+    <MudCard Class="mt-8">
+        <TwoThirdsComponent Inverted>
+            <WideContent>
+                <ImageCarousel ImageSrcs="_tempusHubImages"/>
+            </WideContent>
+            <NarrowContent>
+                <MudText Typo="Typo.h4">Tempus Hub</MudText>
+                <MudText Typo="Typo.caption">
+                    Leroasd asdf ahgds dgasid asdf asdf a.
+                    asdfasdf sdf.sadf asdf asdf asjdkfh asjfuen asdk fasdkf ansfdn fkasdfnk ajsndfkj ansdjjd nnjj jndf asd asdf kd saokfd d. sfasdf asdf.
+                </MudText>
+            </NarrowContent>
+        </TwoThirdsComponent>
+    </MudCard>
 </div>
 
 @code
@@ -66,7 +81,7 @@
         "/img/tempushub-1.png",
         "/img/tempushub-2.png"
     };
-    
+
     protected override async Task OnInitializedAsync()
     {
         await _js.InvokeVoidAsync("loadTsParticles", LandingFirst, "tsparticles/landing.json");

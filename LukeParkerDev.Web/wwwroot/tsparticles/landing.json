@@ -5,12 +5,18 @@
     "size": "cover"
   },
   "interactivity": {
+    "detectsOn": "window",
     "events": {
       "onClick": {
         "mode": "push"
       },
       "onHover": {
-        "mode": "repulse"
+        "enable": true,
+        "mode": "grab",
+        "parallax": {
+          "enable": true,
+          "force": 60
+        }
       }
     },
     "modes": {
