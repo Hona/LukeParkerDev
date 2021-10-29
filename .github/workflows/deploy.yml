@@ -17,7 +17,7 @@ jobs:
         dotnet-version: 6.x
         include-prerelease: true
     - name: Publish 
-      run: dotnet publish LukeParkerDev.sln Release -o release --nologo
+      run: dotnet publish LukeParkerDev.Web/LukeParkerDev.Web.csproj -c Release -o release --nologo
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
