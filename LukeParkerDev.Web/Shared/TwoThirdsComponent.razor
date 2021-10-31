@@ -7,7 +7,7 @@
     {
         @NarrowContainer
     }
-    <MudItem sm="12" md="1" Style="">
+    <MudItem xs="12" sm="12" md="1">
         <MudHidden Breakpoint="Breakpoint.SmAndDown">
             <div style="width: 100%; height: 100%" class="d-flex justify-center align-center">
                 <MudDivider Vertical DividerType="DividerType.Middle"/>
@@ -53,12 +53,12 @@
         </div>;
 
     private RenderFragment NarrowContainer =>
-        @<MudItem sm="12" md="4">
+        @<MudItem xs="12" sm="12" md="4">
             @NarrowContentWrapper
         </MudItem>;
 
     private RenderFragment WideContainer =>
-        @<MudItem sm="12" md="7">
+        @<MudItem xs="12" sm="12" md="7">
             @WideContent
         </MudItem>;
 }
