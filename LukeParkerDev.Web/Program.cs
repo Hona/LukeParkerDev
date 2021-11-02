@@ -12,4 +12,6 @@ var services = builder.Services;
 services.AddScoped(sp => new HttpClient {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
 services.AddMudServices();
 
+//test
+
 await builder.Build().RunAsync();
