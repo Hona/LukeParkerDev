@@ -1,7 +1,8 @@
 ﻿.landing-container {
     height: calc(100vh - var(--mud-appbar-height));
-    max-height: 100vh;
+    max-height: calc(100vh - var(--mud-appbar-height));
     position: relative;
+    overflow-y: clip;
 }
 
 .particle-container > * {

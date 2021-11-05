@@ -40,7 +40,7 @@
 
 <MudDivider Class="ma-4"/>
 
-<div style="height: 100vh; width: 100%" class="pl-6 pr-6 mt-6">
+<div style="width: 100%" class="pl-6 pr-6 mt-6 mb-6">
     <MudCard Elevation="0">
         <TwoThirdsComponent>
             <WideContent>
@@ -59,13 +59,12 @@
     <MudCard Class="mt-8">
         <TwoThirdsComponent Inverted>
             <WideContent>
-                <ImageCarousel ImageSrcs="_tempusHubImages"/>
+                <ImageCarousel ImageSrcs="_upBlazorImages"/>
             </WideContent>
             <NarrowContent>
-                <MudText Typo="Typo.h4">Tempus Hub</MudText>
+                <MudText Typo="Typo.h4">UpBlazor</MudText>
                 <MudText Typo="Typo.caption">
-                    Leroasd asdf ahgds dgasid asdf asdf a.
-                    asdfasdf sdf.sadf asdf asdf asjdkfh asjfuen asdk fasdkf ansfdn fkasdfnk ajsndfkj ansdjjd nnjj jndf asd asdf kd saokfd d. sfasdf asdf.
+                    Asdfasdf ghsdfgsd, sdfgtgsdfgs dfg - sdfgsdfg. Asdfsdf... asdfasd asdfasdfasdfas dfasdadf asdf
                 </MudText>
             </NarrowContent>
         </TwoThirdsComponent>
@@ -79,7 +78,20 @@
     private List<string> _tempusHubImages = new()
     {
         "/img/tempushub-1.png",
-        "/img/tempushub-2.png"
+        "/img/tempushub-2.png",
+        "/img/tempushub-3.png",
+        "/img/tempushub-4.png",
+        "/img/tempushub-5.png"
+    };
+    
+    private List<string> _upBlazorImages = new()
+    {
+        "/img/upblazor-1.png",
+        "/img/upblazor-2.png",
+        "/img/upblazor-3.png",
+        "/img/upblazor-4.png",
+        "/img/upblazor-5.png",        
+        "/img/upblazor-6.png"
     };
 
     protected override async Task OnInitializedAsync()
