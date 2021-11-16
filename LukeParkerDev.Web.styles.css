@@ -1,19 +1,4 @@
 /* /Pages/Index.razor.rz.scp.css */
-.landing-container[b-4bccyimaye] {
-    height: calc(100vh - var(--mud-appbar-height));
-    max-height: calc(100vh - var(--mud-appbar-height));
-    position: relative;
-    overflow-y: clip;
-}
-
-.particle-container > *[b-4bccyimaye] {
-    width: 100%;
-    height: 100%;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-}
 /* /Shared/ImageCarousel.razor.rz.scp.css */
 img[b-j1qv55if3x] {
     width: 100%; 
@@ -22,13 +7,22 @@ img[b-j1qv55if3x] {
 /* /Shared/ParticlesContainer.razor.rz.scp.css */
 .particle-container[b-oqelp5uh9p] {
     position: relative;
+
+    height: calc(100vh - var(--mud-appbar-height));
+    max-height: calc(100vh - var(--mud-appbar-height));
+    overflow-y: clip;
 }
 
-.particle-container > *[b-oqelp5uh9p] {
-    width: 100%;
-    height: 100%;
+/* /Shared/TwoThirdsComponent.razor.rz.scp.css */
+.narrow-content-wrapper[b-qqyqtvwd07] {
+    min-height: 100%;
+}
 
-    position: absolute;
-    top: 0;
-    left: 0;
+.narrow-content-wrapper > div[b-qqyqtvwd07] {
+    min-height: 100%;
+}
+/* /Shared/YouTubeCard.razor.rz.scp.css */
+img[b-xsb005rp7s] {
+    width: 100%; 
+    aspect-ratio: 16/9
 }
