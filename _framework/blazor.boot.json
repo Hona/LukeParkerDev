@@ -7,7 +7,7 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "LukeParkerDev.Web.dll": "sha256-j9oGtZwrEVJaWLk3G2gvgXM2tYwwiUxaoG9uOaZBg9M=",
+      "LukeParkerDev.Web.dll": "sha256-0Q1\/5i\/QMfVuGXvmBwnY9ofefXvRkEIUssdD9\/Db0vo=",
       "Microsoft.AspNetCore.Components.dll": "sha256-kqVTBuY729jMXFeftyG1DTRpgTWDOk87OK4pd7A5eIA=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-1CA0aXdQlh7jdA84c8deq61NEwru+XInPg9aFy9N6y4=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-zg404ZVZLqEfuZijwx4l9uCwfZCKS+o5rU5T2eayWzU=",
