@@ -1,0 +1,27 @@
+﻿<MudCard>
+    <TwoThirdsComponent>
+        <WideContent>
+            <ImageCarousel ImageSrcs="_tempusHubImages"/>
+        </WideContent>
+        <NarrowContent>
+            <MudText Typo="Typo.h4">Tempus Hub</MudText>
+            <MudText Typo="Typo.subtitle1">
+                🥇 Website built for a racing game community to socialise, track times, see analytics and all round complement the game. This app aggregates data from the game's API and creates much more insightful data presented with the beautiful frontend for end users.
+            </MudText>
+            <MudSpacer />
+            <ProjectLinks GitHub="https://github.com/Hona/TempusHub" Website="https://tempushub.xyz"/>
+        </NarrowContent>
+    </TwoThirdsComponent>
+</MudCard>
+
+@code 
+{
+    private List<string> _tempusHubImages = new()
+    {
+        "/img/tempushub-1.png",
+        "/img/tempushub-2.png",
+        "/img/tempushub-3.png",
+        "/img/tempushub-4.png",
+        "/img/tempushub-5.png"
+    };
+}

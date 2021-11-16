@@ -1,0 +1,30 @@
+﻿<MudCard>
+    <TwoThirdsComponent Inverted>
+        <WideContent>
+            <ImageCarousel ImageSrcs="_momentumModImages"/>
+        </WideContent>
+        <NarrowContent>
+            <MudText Typo="Typo.h4">Momentum Mod</MudText>
+            <MudText Typo="Typo.caption">
+                Momentum Mod is a free, standalone game built on the Source Engine that aims to faithfully recreate, centralize, and improve upon the movement game modes found in Counter-Strike, Team Fortress, Half-Life 2, and Titanfall.
+            </MudText>
+            <MudDivider />
+            <MudText Typo="Typo.subtitle1">
+                I work on the Website, API, Discord Bot, Forums, DevOps & Anti-Cheat (Closed Source) & Project Manager for the Frontend & Backend.
+            </MudText>
+            <MudSpacer />
+            <ProjectLinks GitHub="https://github.com/momentum-mod" Website="https://momentum-mod.org/"/>
+        </NarrowContent>
+    </TwoThirdsComponent>
+</MudCard>
+
+@code 
+{
+    private List<string> _momentumModImages = new()
+    {
+        "/img/momentum-1.png",
+        "/img/momentum-2.png",
+        "/img/momentum-3.png",
+        "/img/momentum-4.png"
+    };
+}

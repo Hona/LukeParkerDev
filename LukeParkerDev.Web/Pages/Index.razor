@@ -2,8 +2,7 @@
 
 @inject IJSRuntime _js
 
-<div class="landing-container particle-container">
-    <div id="@LandingFirst"/>
+<ParticlesContainer FileName="landing">
     <MudHidden Breakpoint="Breakpoint.SmAndDown">
         <div class="d-flex justify-end align-center">
             <MudCard Class="pa-4" Style="width: 50%" Elevation="0">
@@ -36,66 +35,13 @@
             </MudText>
         </MudPaper>
     </div>
-</div>
+</ParticlesContainer>
 
 <MudDivider Class="ma-4"/>
 
 <div style="width: 100%" class="pl-6 pr-6 mt-6 mb-6">
-    <MudCard Elevation="0">
-        <TwoThirdsComponent>
-            <WideContent>
-                <ImageCarousel ImageSrcs="_tempusHubImages"/>
-            </WideContent>
-            <NarrowContent>
-                <MudText Typo="Typo.h4">Tempus Hub</MudText>
-                <MudText Typo="Typo.caption">
-                    Leroasd asdf ahgds dgasid asdf asdf a.
-                    asdfasdf sdf.sadf asdf asdf asjdkfh asjfuen asdk fasdkf ansfdn fkasdfnk ajsndfkj ansdjjd nnjj jndf asd asdf kd saokfd d. sfasdf asdf.
-                </MudText>
-            </NarrowContent>
-        </TwoThirdsComponent>
-    </MudCard>
-
-    <MudCard Class="mt-8">
-        <TwoThirdsComponent Inverted>
-            <WideContent>
-                <ImageCarousel ImageSrcs="_upBlazorImages"/>
-            </WideContent>
-            <NarrowContent>
-                <MudText Typo="Typo.h4">UpBlazor</MudText>
-                <MudText Typo="Typo.caption">
-                    Asdfasdf ghsdfgsd, sdfgtgsdfgs dfg - sdfgsdfg. Asdfsdf... asdfasd asdfasdfasdfas dfasdadf asdf
-                </MudText>
-            </NarrowContent>
-        </TwoThirdsComponent>
-    </MudCard>
+    <TempusHubCard />
+    <UpBlazorCard />
+    <UserGroupCard />
+    <MomentumModCard />
 </div>
-
-@code
-{
-    private const string LandingFirst = "landing-first";
-
-    private List<string> _tempusHubImages = new()
-    {
-        "/img/tempushub-1.png",
-        "/img/tempushub-2.png",
-        "/img/tempushub-3.png",
-        "/img/tempushub-4.png",
-        "/img/tempushub-5.png"
-    };
-    
-    private List<string> _upBlazorImages = new()
-    {
-        "/img/upblazor-1.png",
-        "/img/upblazor-2.png",
-        "/img/upblazor-3.png",
-        "/img/upblazor-4.png",
-        "/img/upblazor-5.png",        
-        "/img/upblazor-6.png"
-    };
-
-    protected override async Task OnInitializedAsync()
-    {
-        await _js.InvokeVoidAsync("loadTsParticles", LandingFirst, "tsparticles/landing.json");
-    }
-}

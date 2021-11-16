@@ -1,0 +1,7 @@
+.narrow-content-wrapper {
+    min-height: 100%;
+}
+
+.narrow-content-wrapper > div {
+    min-height: 100%;
+}

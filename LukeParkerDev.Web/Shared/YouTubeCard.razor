@@ -1,0 +1,24 @@
+﻿<MudCard>
+    <TwoThirdsComponent>
+        <WideContent>
+            <img src="@ThumbnailUrl"/>
+        </WideContent>
+        <NarrowContent>
+            @ChildContent
+            <MudSpacer />
+            <ProjectLinks YouTube="@VideoUrl"/>
+        </NarrowContent>
+    </TwoThirdsComponent>
+</MudCard>
+
+@code 
+{
+    [Parameter]
+    public string VideoUrl { get; set; } = null!;
+    
+    [Parameter]
+    public string ThumbnailUrl { get; set; } = null!;
+    
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

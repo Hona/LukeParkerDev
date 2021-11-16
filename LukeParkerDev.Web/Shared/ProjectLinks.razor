@@ -1,0 +1,26 @@
+﻿<MudButtonGroup Variant="Variant.Filled" DisableElevation Class="pt-4">
+    @if (!string.IsNullOrWhiteSpace(GitHub))
+    {
+        <MudButton Link="@GitHub" Target="_blank">Go!</MudButton>
+    }
+    @if (!string.IsNullOrWhiteSpace(Website))
+    {
+        <MudButton Link="@Website" Target="_blank" StartIcon="@Icons.Custom.Brands.GitHub">Code</MudButton>
+    }
+    @if (!string.IsNullOrWhiteSpace(YouTube))
+    {
+        <MudButton Link="@YouTube" Target="_blank" StartIcon="@Icons.Custom.Brands.YouTube">Watch</MudButton>
+    }
+</MudButtonGroup>
+
+@code
+{
+    [Parameter]
+    public string? GitHub { get; set; }
+    
+    [Parameter]
+    public string? Website { get; set; }
+    
+    [Parameter]
+    public string? YouTube { get; set; }
+}

@@ -39,14 +39,14 @@
     public bool Inverted { get; set; }
 
     private RenderFragment NarrowContentWrapper =>
-        @<div>
+        @<div class="narrow-content-wrapper">
             <MudHidden Breakpoint="Breakpoint.SmAndDown">
-                <div class="pa-4">
+                <div class="pa-4 d-flex flex-column justify-start align-center" >
                     @NarrowContent
                 </div>
             </MudHidden>
             <MudHidden Breakpoint="Breakpoint.SmAndDown" Invert>
-                <div class="pl-4 pr-4">
+                <div class="pl-4 pr-4 d-flex flex-column justify-start align-start">
                     @NarrowContent
                 </div>
             </MudHidden>
