@@ -1,4 +1,13 @@
-﻿:root {
+﻿.blog-markdown * {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.blog-markdown img {
+    max-width: 50%;
+}
+
+:root {
     --background: #32333d;
 }
 
