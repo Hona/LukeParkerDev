@@ -1,0 +1,113 @@
+﻿@page "/blog"
+@page "/blog/{*Slug}"
+@page "/posts/{*Slug}"
+
+@using YamlDotNet.Serialization
+@using YamlDotNet.Serialization.NamingConventions
+@using Markdig
+
+@inject HttpClient _httpClient
+
+@if (_loading)
+{
+    <MudProgressCircular Color="Color.Info"/>
+}
+else if (!string.IsNullOrWhiteSpace(Slug))
+{
+    if (_loadedPosts.TryGetValue(Slug, out var loadedPost))
+    {
+        <MudText Typo="Typo.h3">@loadedPost.Frontmatter.title</MudText>
+        <MudText Typo="Typo.caption">@loadedPost.Frontmatter.date</MudText>
+        <MudDivider />
+        <div class="blog-markdown">
+            @(new MarkupString(Markdown.ToHtml(loadedPost.Markdown)))
+        </div>
+    }
+    else
+    {
+        <MudText Typo="Typo.body1" Color="Color.Warning">That post was not found</MudText>
+    }
+}
+else
+{
+    <MudText Typo="Typo.h3">Blog</MudText>
+    
+    <MudList>
+    @foreach (var loadedPost in _loadedPosts)
+    {
+        <MudListItem>
+            @loadedPost.Value.Frontmatter.date
+            <MudLink Href="@("/posts/" + loadedPost.Value.Frontmatter.slug)" Color="Color.Info">
+                @loadedPost.Value.Frontmatter.title
+            </MudLink>
+        </MudListItem>
+    }
+    </MudList>
+}
+
+@code
+{
+    private List<string> _blogFiles = new()
+    {
+        "/blog/2021-01-07-why-i-switched-to-rider-from-vs-for-csharp.md",
+        "/blog/2021-02-01-building-a-beautiful-okr-with-antblazor-part-0.md",
+        "/blog/2021-02-02-building-a-beautiful-okr-with-antblazor-part-1.md",
+        "/blog/2021-02-03-building-a-beautiful-okr-with-antblazor-part-2.md",
+        "/blog/building-a-beautiful-okr-with-antblazor-part-3.md"
+    };
+    
+    // <Slug, Markdown>
+    private Dictionary<string, LoadedBlog> _loadedPosts = new();
+
+    private bool _loading;
+
+    [Parameter]
+    public string? Slug { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _loading = true;
+        
+        var yamlDeserializer = new DeserializerBuilder()
+            .WithNamingConvention(HyphenatedNamingConvention.Instance)
+            .Build();
+        
+        foreach (var blogFile in _blogFiles)
+        {
+            var blogText = await _httpClient.GetStringAsync(blogFile);
+            var sections = blogText.Split("+++");
+
+            var yamlSection = sections[1];
+            var markdownSection = sections[2];
+
+            Console.WriteLine(yamlSection);
+            
+            var parsedYaml = yamlDeserializer.Deserialize<YamlFrontmatter>(yamlSection);
+
+            _loadedPosts[parsedYaml.slug] = new LoadedBlog
+            {
+                Frontmatter = parsedYaml,
+                Markdown = markdownSection
+            };
+        }
+
+        _loading = false;
+    }
+
+    private class YamlFrontmatter
+    {
+        public string date { get; set; }
+        public string title { get; set; }
+        public string slug { get; set; }
+        public List<string> tags { get; set; }
+        public List<string> categories { get; set; }
+        public List<string> series { get; set; }
+        public List<string> authors { get; set; }
+    }
+
+    private class LoadedBlog
+    {
+        public YamlFrontmatter Frontmatter { get; set; }
+        public string Markdown { get; set; }
+    }
+}

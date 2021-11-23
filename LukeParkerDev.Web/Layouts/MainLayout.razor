@@ -3,8 +3,13 @@
 <MudLayout>
     <MudAppBar Elevation="1">
         <MaxWidthContainer Class="d-flex flex-row align-center">
-            <MudText Typo="Typo.h5" Class="ml-3" Inline>LukeParker.Dev</MudText>
+            <MudText Typo="Typo.h5" Class="ml-3" Inline>
+                <MudLink Typo="Typo.h5" Href="/" Color="Color.Surface">
+                    LukeParker.Dev
+                </MudLink>
+            </MudText>
             <MudSpacer/>
+            <MudLink Typo="Typo.h6" Href="/blog" Color="Color.Info">Blog</MudLink>
             <MenuDrawerButton/>
         </MaxWidthContainer>
     </MudAppBar>
