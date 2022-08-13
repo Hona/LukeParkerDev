@@ -8,18 +8,20 @@
 
 @inject HttpClient _httpClient
 
+@inject IJSRuntime JS
+
 <MudContainer MaxWidth="MaxWidth.Medium" Class="mt-6">
     @if (_loading)
     {
-        <MudProgressCircular Color="Color.Info"/>
+        <MudProgressLinear Color="Color.Secondary" Indeterminate/>
     }
     else if (!string.IsNullOrWhiteSpace(Slug))
     {
         if (_loadedPosts.TryGetValue(Slug, out var loadedPost))
         {
             <MudText Typo="Typo.h3">@loadedPost.Frontmatter.title</MudText>
-            <MudText Typo="Typo.caption">@loadedPost.Frontmatter.date</MudText>
-            <MudDivider />
+            <MudText Typo="Typo.subtitle2">@loadedPost.Frontmatter.date</MudText>
+
             <div class="blog-markdown">
                 @(new MarkupString(Markdown.ToHtml(loadedPost.Markdown)))
             </div>
@@ -93,6 +95,8 @@
     protected override async Task OnInitializedAsync()
     {
         _loading = true;
+
+        await Task.Delay(500);
         
         var yamlDeserializer = new DeserializerBuilder()
             .WithNamingConvention(HyphenatedNamingConvention.Instance)
@@ -118,6 +122,14 @@
         }
 
         _loading = false;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!_loading && !string.IsNullOrWhiteSpace(Slug) && _loadedPosts.TryGetValue(Slug, out _))
+        {
+            await JS.InvokeVoidAsync("highlightBlogPostCode");
+        }
     }
 
     private class YamlFrontmatter

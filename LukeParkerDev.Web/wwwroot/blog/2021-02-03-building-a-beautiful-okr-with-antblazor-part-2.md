@@ -21,7 +21,7 @@ Some feature ideas:
 * Key Results should have a completion percent 0%-100%
 * Key Results should have a priority (higher the number the more important)
 
-```c#
+```csharp
 public class Objective
 {
     public Guid Id { get; set; }
@@ -33,7 +33,7 @@ public class Objective
 }
 ```
 
-```c#
+```csharp
 public class KeyResult
 {
     public Guid Id { get; set; }
@@ -61,7 +61,7 @@ Create another folder in `OKR.Core` called `Repositories`.
 Data access code, especially in repositories can get pretty repetitive, so lets abstract it to a generic repository:
 
 IGenericRepository.cs
-```c#
+```csharp
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -84,7 +84,7 @@ This code provides the simple CRUD operations on any model `T`
 Now lets build the specific repositories for OKRs:
 
 IObjectiveRepository.cs
-```c#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -104,7 +104,7 @@ namespace OKR.Core.Repositories
 Note the added functions that are specific to `Objective` properties
 
 IKeyResultRepository.cs
-```c#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -127,7 +127,7 @@ Before we get started with the frontend we have to mock the repositories to get 
 
 Lets create a new class library project to hold the mock repositories called `OKR.Core.Mock`. Add a project reference to `OKR.Core`. Create a folder called `Repositories` and create the files: `MockObjectiveRepository.cs` and `MockKeyResultRepository.cs` - implementing the underlying interface. You should be able to autogenerate the functions like so:
 
-```c#
+```csharp
 public class MockObjectiveRepository : IObjectiveRepository
     {
         public async Task AddAsync(Objective model)
@@ -146,7 +146,7 @@ public class MockObjectiveRepository : IObjectiveRepository
 At this point, lets just make a couple functions return mock data, the rest can throw exceptions:
 
 MockKeyResultRepository.cs
-```c#
+```csharp
 public async Task<IReadOnlyList<KeyResult>> GetAllByObjectiveAsync(Guid objectiveId) => new[]
 {
     new KeyResult
@@ -184,7 +184,7 @@ public async Task<IReadOnlyList<KeyResult>> GetAllByObjectiveAsync(Guid objectiv
 ```
 
 MockObjectiveRepository.cs
-```c#
+```csharp
 public async Task<IReadOnlyList<Objective>> GetAllAsync() => new[]
 {
     new Objective

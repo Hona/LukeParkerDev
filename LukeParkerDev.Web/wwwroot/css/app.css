@@ -5,21 +5,25 @@
     src: url("/fonts/JetbrainsMono-Thin.woff2") format("woff2");
 }
 
+.blog-markdown {
+    color: var(--mud-palette-primary-text);
+}
+
 .blog-markdown * {
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+.blog-markdown h1, .blog-markdown h2, .blog-markdown h3, .blog-markdown h4, .blog-markdown h5, .blog-markdown h6 {
+    font-family: var(--mud-typography-h3-family);
 }
 
 .blog-markdown img {
     max-width: 50%;
 }
 
-:root {
-    --background: #192E39;
-}
-
 #preload {
-    background: var(--background);
+    background: #192e39ff;
 
     position: absolute;
     top: 0;
@@ -37,7 +41,7 @@ small {
     position: absolute;
     bottom: 20px;
     left: 50%;
-    font-family: Arial;
+    font-family: "Open Sans", sans-serif;
     max-width: 320px;
     font-size: 12px;
     line-height: 19px;
@@ -62,9 +66,9 @@ small {
 
 .loader {
     --duration: 3s;
-    --primary: rgba(33, 150, 243, 1);
-    --primary-light: #47a7f5;
-    --primary-rgba: rgb(89, 74, 226, 0);
+    --primary: #ef476f;
+    --primary-light: #ef476f;
+    --primary-rgba: rgba(239, 71, 111, 0.67);
     width: 200px;
     height: 320px;
     position: relative;
@@ -83,7 +87,6 @@ small {
     position: absolute;
     right: 32%;
     bottom: -11px;
-    background: var(--background);
     transform: translateZ(200px) rotate(var(--r));
     -webkit-animation: mask var(--duration) linear forwards infinite;
     animation: mask var(--duration) linear forwards infinite;
@@ -714,9 +717,6 @@ small {
         opacity: 1;
     }
 }
-body {
-    background: var(--background);
-}
 
 #blazor-error-ui {
     background: lightyellow;
@@ -778,5 +778,4 @@ h6 {
 
 p {
     color: var(--mud-palette-primary-text);
-    font-family: ;
 }
