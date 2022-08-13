@@ -27,13 +27,8 @@
             </MudCard>
         </div>
     </MudHidden>
-    <div class="d-flex justify-center align-end">
-        <MudPaper Class="pa-4 d-flex justify-center align-center  mb-4" Elevation="4">
-            <MudIcon Icon="@Icons.Filled.ArrowDownward"/>
-            <MudText Class="pl-4">
-                Scroll for more...
-            </MudText>
-        </MudPaper>
+    <div class="d-flex justify-center align-end pb-4 pr-4">
+        <MudIconButton Icon="@Icons.Filled.ArrowDownward" Color="Color.Primary" Variant="Variant.Filled" OnClick="HandleScrollDownPage"/>
     </div>
 </ParticlesContainer>
 
@@ -44,3 +39,12 @@
     <UpBlazorCard />
     <UserGroupCard />
 </div>
+
+@code {
+
+    private async Task HandleScrollDownPage()
+    {
+        await _js.InvokeVoidAsync("scrollDownFullPage");
+    }
+
+}
