@@ -7,11 +7,15 @@
         <div class="hello-wrapper d-flex align-center flex-grow-1 ">
             <MudCard Class="pa-4" Elevation="4">
                 <MudText Typo="Typo.h2" Color="Color.Default" Style="color: #fff">
-                    <MudIcon Class="super-large mt-2 ml-2" Icon="@Icons.Filled.WavingHand" Size="Size.Large" Color="Color.Tertiary"/> Hi! I'm
+                    <MudIcon Class="super-large mt-2 ml-2" Icon="@Icons.Filled.WavingHand" Size="Size.Large" Color="Color.Tertiary"/> Hi!&nbsp;I'm
                 </MudText>
-                <MudText Typo="Typo.h1" Color="Color.Info">
-                    Luke Parker
-                    <MudIconButton Class="super-large mr-4" Style="float: right" Variant="Variant.Filled" Color="Color.Secondary" Icon="@Icons.Custom.Brands.GitHub" Href="https://github.com/Hona" Size="Size.Large"/>
+                <MudText Typo="Typo.h1" Color="Color.Info" Class="d-flex flex-wrap">
+                    <span class="flex-grow-1" style="width: min-content">
+                        Luke Parker
+                    </span>
+                    <div class="pt-4">
+                        <MudIconButton Class="super-large mr-4" Style="float: right" Variant="Variant.Filled" Color="Color.Secondary" Icon="@Icons.Custom.Brands.GitHub" Href="https://github.com/Hona" Size="Size.Large"/>
+                    </div>
                 </MudText>
             </MudCard>
         </div>
