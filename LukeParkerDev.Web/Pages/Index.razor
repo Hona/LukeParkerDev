@@ -3,20 +3,8 @@
 @inject IJSRuntime _js
 
 <ParticlesContainer FileName="landing">
-    <MudHidden Breakpoint="Breakpoint.SmAndDown">
-        <div class="d-flex justify-end align-center">
-            <MudCard Class="pa-4" Style="width: 50%" Elevation="4">
-                <MudText Typo="Typo.h2" Color="Color.Default" Style="color: #fff">
-                    <MudIcon Class="super-large mt-2 ml-2" Icon="@Icons.Filled.WavingHand" Size="Size.Large" Color="Color.Tertiary"/> Hi! I'm
-                </MudText>
-                <MudText Typo="Typo.h1" Color="Color.Info">
-                    Luke Parker
-                </MudText>
-            </MudCard>
-        </div>
-    </MudHidden>
-    <MudHidden Breakpoint="Breakpoint.SmAndDown" Invert>
-        <div class="d-flex justify-center align-center">
+    <div class="d-flex flex-column flex-grow-1">
+        <div class="hello-wrapper d-flex align-center flex-grow-1 ">
             <MudCard Class="pa-4" Elevation="4">
                 <MudText Typo="Typo.h2" Color="Color.Default" Style="color: #fff">
                     <MudIcon Class="super-large mt-2 ml-2" Icon="@Icons.Filled.WavingHand" Size="Size.Large" Color="Color.Tertiary"/> Hi! I'm
@@ -26,9 +14,10 @@
                 </MudText>
             </MudCard>
         </div>
-    </MudHidden>
-    <div class="d-flex justify-center align-end pb-4 pr-4">
-        <MudIconButton Icon="@Icons.Filled.ArrowDownward" Color="Color.Primary" Variant="Variant.Filled" OnClick="HandleScrollDownPage"/>
+        
+        <div class="d-flex justify-center align-end pb-4 pr-4">
+            <MudIconButton Icon="@Icons.Filled.ArrowDownward" Color="Color.Primary" Variant="Variant.Filled" OnClick="HandleScrollDownPage"/>
+        </div>
     </div>
 </ParticlesContainer>
 
