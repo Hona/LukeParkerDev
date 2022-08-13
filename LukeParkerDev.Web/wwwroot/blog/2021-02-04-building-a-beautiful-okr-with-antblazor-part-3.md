@@ -62,7 +62,7 @@ As we aren't using Bootstrap or Open Iconic in this project at all, we can just 
 * OKR.Web/wwwroot/css/bootstrap
 * OKR.Web/wwwroot/css/open-iconic
 
-### Removing unused CSS
+### Removing Unused CSS
 
 Now that there is no bootstrap, there was some custom CSS that we don't use, so lets clean it up.
 
