@@ -1,9 +1,17 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,400&display=swap');
 
 @font-face {
-    font-family: "JetBrains Mono Thin";
-    src: url("/fonts/JetbrainsMono-Thin.woff2") format("woff2");
+    font-family: 'JetBrains Mono Thin';
+    src: url('fonts/JetBrainsMono-Thin.eot');
+    src: local('JetBrains Mono Thin'), local('JetBrainsMono-Thin'),
+    url('fonts/JetBrainsMono-Thin.eot?#iefix') format('embedded-opentype'),
+    url('fonts/JetBrainsMono-Thin.woff2') format('woff2'),
+    url('fonts/JetBrainsMono-Thin.woff') format('woff'),
+    url('fonts/JetBrainsMono-Thin.ttf') format('truetype'),
+    url('fonts/JetBrainsMono-Thin.svg#JetBrainsMono-Thin') format('svg');
 }
+
+
 
 .blog-markdown {
     color: var(--mud-palette-primary-text);
