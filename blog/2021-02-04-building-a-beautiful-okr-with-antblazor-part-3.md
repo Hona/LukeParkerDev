@@ -1,12 +1,10 @@
 +++
-authors: ["Luke Parker"]
 categories: ["Development"]
 date: 2021-08-25
 series: ["OKR"]
 slug: "building-a-beautiful-okr-with-antblazor/3"
 tags: ["OKR", "C#", "AntBlazor", "AntDesign", "Blazor"]
 title: "Building a Beautiful OKR with AntBlazor - Part 3"
-
 +++
 ## Setup AntBlazor
 

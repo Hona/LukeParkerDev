@@ -5,7 +5,7 @@ slug: "why-I-switched-to-Rider-from-vs-for-csharp-development"
 tags: ["Rider", "Visual Studio", "C#"]
 categories: ["Development"]
 series: []
-authors: ["Luke Parker"]
+hook: "An overview of what drove me away from Visual Studio - and my first impressions of Rider."
 +++
 
 ## Context

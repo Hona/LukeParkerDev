@@ -5,7 +5,7 @@ slug: "building-a-beautiful-okr-with-antblazor/0"
 tags: ["Blazor", "AntDesign", "AntBlazor", "C#", "OKR"]
 categories: ["Development"]
 series: ["OKR"]
-authors: ["Luke Parker"]
+hook: "An introduction to the series, and what exactly an 'OKR' is."
 +++
 
 ## Introduction

@@ -5,7 +5,7 @@ slug: "building-a-beautiful-okr-with-antblazor/1"
 tags: ["Blazor", "AntDesign", "AntBlazor", "C#", "OKR"]
 categories: ["Development"]
 series: ["OKR"]
-authors: ["Luke Parker"]
+hook: "Setup the project boilerplate, the get DevOps working with Docker, Docker-Compose, GitHub Actions, Cloudflare, NGINX and your VPS of choice!"
 +++
 
 ## Boilerplate
