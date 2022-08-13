@@ -2,6 +2,6 @@
 
 public class LoadedBlog
 {
-    public YamlFrontmatter Frontmatter { get; set; }
-    public string Markdown { get; set; }
+    public YamlFrontmatter Frontmatter { get; set; } = new();
+    public string Markdown { get; set; } = string.Empty;
 }

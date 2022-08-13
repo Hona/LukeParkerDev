@@ -15,7 +15,7 @@
     }
     else
     {
-        var selectedBlog = _loadedBlogs.FirstOrDefault(x => x.Frontmatter.slug == Slug);
+        var selectedBlog = _loadedBlogs?.FirstOrDefault(x => x.Frontmatter.slug == Slug);
 
         if (selectedBlog is not null)
         {
@@ -41,7 +41,7 @@
 {
     private bool _loading;
 
-    private IReadOnlyList<LoadedBlog> _loadedBlogs;
+    private IReadOnlyList<LoadedBlog>? _loadedBlogs;
 
     [Parameter]
     public string? Slug { get; set; }
@@ -57,7 +57,8 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (!_loading && !string.IsNullOrWhiteSpace(Slug) && _loadedBlogs.Any(x => x.Frontmatter.slug == Slug))
+        if (!_loading && !string.IsNullOrWhiteSpace(Slug) && _loadedBlogs is not null
+            && _loadedBlogs.Any(x => x.Frontmatter.slug == Slug))
         {
             await JS.InvokeVoidAsync("highlightBlogPostCode");
         }
