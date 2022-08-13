@@ -799,7 +799,7 @@ p {
     color: var(--mud-palette-primary-text);
 }
 
-.super-large {
+.super-large, .super-large.mud-icon-button-size-large.mud-button>.mud-icon-button-label>.mud-icon-size-large {
     font-size: 3.5rem;
 }
 
