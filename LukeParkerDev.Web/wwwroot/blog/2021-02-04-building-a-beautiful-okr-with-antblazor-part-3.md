@@ -3,7 +3,7 @@ categories: ["Development"]
 date: 2021-08-25
 series: ["OKR"]
 slug: "building-a-beautiful-okr-with-antblazor/3"
-tags: ["OKR", "C#", "AntBlazor", "AntDesign", "Blazor"]
+tags: ["C#", "AntBlazor", "AntDesign", "Blazor"]
 title: "Building a Beautiful OKR with AntBlazor - Part 3"
 +++
 ## Setup AntBlazor
@@ -91,7 +91,7 @@ OKR.Web/wwwroot/css/site.css
 
 Delete everything from the file leaving just the Blazor error UI - which is the bar on the bottom.
 
-![](/uploads/blazor-error-ui.PNG)
+![asdf](/uploads/blazor-error-ui.PNG)
 
 ## Using Forwarded Headers
 

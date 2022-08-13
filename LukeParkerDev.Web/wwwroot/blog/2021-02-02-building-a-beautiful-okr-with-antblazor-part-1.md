@@ -2,7 +2,7 @@
 date: "2021-02-02"
 title: "Building a Beautiful OKR with AntBlazor - Part 1"
 slug: "building-a-beautiful-okr-with-antblazor/1"
-tags: ["Blazor", "AntDesign", "AntBlazor", "C#", "OKR"]
+tags: ["Blazor", "AntDesign", "AntBlazor", "C#"]
 categories: ["Development"]
 series: ["OKR"]
 hook: "Setup the project boilerplate, the get DevOps working with Docker, Docker-Compose, GitHub Actions, Cloudflare, NGINX and your VPS of choice!"

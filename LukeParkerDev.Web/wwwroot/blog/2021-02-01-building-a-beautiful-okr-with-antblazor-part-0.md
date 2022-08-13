@@ -2,7 +2,7 @@
 date: "2021-02-01"
 title: "Building a Beautiful OKR with AntBlazor - Part 0"
 slug: "building-a-beautiful-okr-with-antblazor/0"
-tags: ["Blazor", "AntDesign", "AntBlazor", "C#", "OKR"]
+tags: ["Blazor", "AntDesign", "AntBlazor", "C#"]
 categories: ["Development"]
 series: ["OKR"]
 hook: "An introduction to the series, and what exactly an 'OKR' is."
