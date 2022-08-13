@@ -809,3 +809,21 @@ p {
         --mud-typography-default-size: .5rem;
     }
 }*/
+
+.hello-wrapper {
+    justify-content: flex-end;
+}
+
+.hello-wrapper .mud-card {
+    width: 50%
+}
+
+@media (max-width: 768px) {
+    .hello-wrapper {
+        justify-content: center;
+    }
+    
+    .hello-wrapper .mud-card {
+        width: 90%;
+    }
+}
