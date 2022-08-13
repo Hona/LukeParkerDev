@@ -798,3 +798,14 @@ h6 {
 p {
     color: var(--mud-palette-primary-text);
 }
+
+.super-large {
+    font-size: 3.5rem;
+}
+
+/* TODO: All variables scale down on mobile since its soooo big
+@media (max-width: 768px) {
+    :root {
+        --mud-typography-default-size: .5rem;
+    }
+}*/
