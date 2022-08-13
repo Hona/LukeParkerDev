@@ -7,7 +7,7 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "LukeParkerDev.Web.dll": "sha256-XDH9UQ9YPOJmEO8W2eJpKzloOKq43YEc7lESYK5sWFY=",
+      "LukeParkerDev.Web.dll": "sha256-zPPyB0KTatvV\/Wjg7PUhYOwn9XAZt1gi7zWy6CxNBNs=",
       "Markdig.dll": "sha256-\/qKhOo2ZbkSd56j45qUCUGYRyBMnR0dmDkWfZfLJKeo=",
       "Microsoft.AspNetCore.Components.dll": "sha256-9TPnk8uGrcxC3yeVswMiSU4nOxHNObwZMC\/KXLFjy3w=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-Q0WfAaL4xETTlDPDiVgqRm3lLKRHbcUGKmkDYv\/\/P6M=",
