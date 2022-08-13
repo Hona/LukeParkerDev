@@ -1,11 +1,11 @@
 ﻿<MudButtonGroup Variant="Variant.Filled" Class="mt-4">
     @if (!string.IsNullOrWhiteSpace(Website))
     {
-        <MudButton Link="@GitHub" Target="_blank">Go!</MudButton>
+        <MudButton Link="@Website" Target="_blank">Go!</MudButton>
     }
     @if (!string.IsNullOrWhiteSpace(GitHub))
     {
-        <MudButton Link="@Website" Target="_blank" StartIcon="@Icons.Custom.Brands.GitHub">Code</MudButton>
+        <MudButton Link="@GitHub" Target="_blank" StartIcon="@Icons.Custom.Brands.GitHub">Code</MudButton>
     }
     @if (!string.IsNullOrWhiteSpace(YouTube))
     {
