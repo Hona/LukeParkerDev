@@ -1,0 +1,36 @@
+﻿@using LukeParkerDev.Web.Models
+
+@if (Blog.Frontmatter.tags.Any() || Blog.Frontmatter.series.Any())
+{
+    <MudChipSet Class="mt-2">
+        @foreach (var series in Blog.Frontmatter.series)
+        {
+            <MudChip Size="ChipSize" Href="@("/blog/series/" + Uri.EscapeDataString(series))" Variant="ChipVariant" Color="Color.Secondary">
+                @series
+            </MudChip>
+        }
+        @foreach (var tag in Blog.Frontmatter.tags)
+        {
+            <MudChip Size="ChipSize" Href="@("/blog/tags/" + Uri.EscapeDataString(tag))" Variant="ChipVariant" Color="Color.Tertiary">
+                @tag
+            </MudChip>
+        }
+    </MudChipSet>
+}
+
+@code {
+    [Parameter]
+    public LoadedBlog Blog { get; set; } = null!;
+
+    [Parameter]
+    public Size ChipSize { get; set; }
+
+    [Parameter]
+    public Variant ChipVariant { get; set; } = Variant.Outlined;
+
+    protected override void OnParametersSet()
+    {
+        ArgumentNullException.ThrowIfNull(Blog);
+    }
+
+}

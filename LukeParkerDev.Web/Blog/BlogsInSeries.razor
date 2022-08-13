@@ -1,0 +1,44 @@
+﻿@page "/blog/series/{*Series}"
+@using LukeParkerDev.Web.Services
+@using LukeParkerDev.Web.Models
+@using LukeParkerDev.Web.Blog.Components
+
+@inject BlogService BlogService
+
+<MudContainer MaxWidth="MaxWidth.Medium">
+    @if (_loading)
+    {
+        <MudProgressLinear Color="Color.Secondary" Indeterminate/>
+    }
+    else
+    {
+        <MudText Typo="Typo.h2" Class="mb-4">Series: @Series</MudText>
+
+        <BlogList Blogs="_series" />
+    }
+</MudContainer>
+
+@code {
+    private bool _loading;
+
+    [Parameter]
+    public string Series { get; set; } = null!;
+
+    private IReadOnlyList<LoadedBlog>? _series;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        ArgumentNullException.ThrowIfNull(Series);
+        
+        _loading = true;
+
+        var posts = await BlogService.GetBlogPostsAsync();
+        
+        _series = posts.Where(p => p.Frontmatter.series.Contains(Series))
+            .ToList()
+            .AsReadOnly();
+
+        _loading = false;
+    }
+
+}

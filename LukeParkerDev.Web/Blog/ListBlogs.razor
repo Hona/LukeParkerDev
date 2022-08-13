@@ -1,0 +1,33 @@
+﻿@page "/blog"
+@using LukeParkerDev.Web.Models
+@using LukeParkerDev.Web.Services
+@using LukeParkerDev.Web.Blog.Components
+
+@inject BlogService BlogService
+
+<MudContainer MaxWidth="MaxWidth.Medium">
+    @if (_loading)
+    {
+        <MudProgressLinear Color="Color.Secondary" Indeterminate/>
+    }
+    else
+    {
+        <MudText Typo="Typo.h2" Class="mb-4">Blog</MudText>
+
+        <BlogList Blogs="_loadedBlogs" />
+    }
+</MudContainer>
+
+@code {
+    private bool _loading;
+    private IReadOnlyList<LoadedBlog>? _loadedBlogs;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _loading = true;
+
+        _loadedBlogs = await BlogService.GetBlogPostsAsync();
+
+        _loading = false;
+    }
+}

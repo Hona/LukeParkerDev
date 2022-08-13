@@ -1,0 +1,32 @@
+﻿@using LukeParkerDev.Web.Models
+
+@foreach (var loadedPost in Blogs.OrderByDescending(x => x.Frontmatter.date))
+{
+    <MudCard Elevation="3" Class="mb-4">
+        @if (!string.IsNullOrWhiteSpace(loadedPost.Frontmatter.imageUrl))
+        {
+            <MudCardMedia Image="@loadedPost.Frontmatter.imageUrl" Height="200"/>
+        }
+        <MudCardContent>
+            <MudText Typo="Typo.h5">
+                <MudLink Color="Color.Inherit" Typo="Typo.inherit" Href="@("/blog/" + loadedPost.Frontmatter.slug)">
+                    @loadedPost.Frontmatter.title
+                </MudLink>
+            </MudText>
+            <MudText Typo="Typo.subtitle2">@loadedPost.Frontmatter.date</MudText>
+            <MudText Typo="Typo.body2">@loadedPost.Frontmatter.hook</MudText>
+
+            <BlogChipList Blog="loadedPost"/>
+        </MudCardContent>
+    </MudCard>
+}
+
+@code {
+    [Parameter]
+    public IReadOnlyList<LoadedBlog> Blogs { get; set; } = null!;
+
+    protected override void OnParametersSet()
+    {
+        ArgumentNullException.ThrowIfNull(Blogs);
+    }
+}

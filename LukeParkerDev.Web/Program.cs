@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using LukeParkerDev.Web;
+using LukeParkerDev.Web.Services;
 using MudBlazor.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -11,5 +12,7 @@ var services = builder.Services;
 
 services.AddScoped(sp => new HttpClient {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
 services.AddMudServices();
+
+services.AddScoped<BlogService>();
 
 await builder.Build().RunAsync();

@@ -1,0 +1,65 @@
+﻿@page "/blog/{*Slug}"
+
+@using Markdig
+@using LukeParkerDev.Web.Services
+@using LukeParkerDev.Web.Models
+@using LukeParkerDev.Web.Blog.Components
+
+@inject IJSRuntime JS
+@inject BlogService BlogService
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-6">
+    @if (_loading)
+    {
+        <MudProgressLinear Color="Color.Secondary" Indeterminate/>
+    }
+    else
+    {
+        var selectedBlog = _loadedBlogs.FirstOrDefault(x => x.Frontmatter.slug == Slug);
+
+        if (selectedBlog is not null)
+        {
+            <MudText Typo="Typo.h3">@selectedBlog.Frontmatter.title</MudText>
+            <MudText Typo="Typo.subtitle2">@selectedBlog.Frontmatter.date</MudText>
+            <div style="display: flex; justify-content: center; align-items: center; width: 100%">
+                <BlogChipList Blog="selectedBlog"/>
+            </div>
+
+            <div class="blog-markdown">
+                @(new MarkupString(Markdown.ToHtml(selectedBlog.Markdown)))
+            </div>
+        }
+        else
+        {
+            <MudText Typo="Typo.body1" Color="Color.Warning">That post was not found</MudText>
+        }
+    }
+
+</MudContainer>
+
+@code
+{
+    private bool _loading;
+
+    private IReadOnlyList<LoadedBlog> _loadedBlogs;
+
+    [Parameter]
+    public string? Slug { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _loading = true;
+
+        _loadedBlogs = await BlogService.GetBlogPostsAsync();
+
+        _loading = false;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!_loading && !string.IsNullOrWhiteSpace(Slug) && _loadedBlogs.Any(x => x.Frontmatter.slug == Slug))
+        {
+            await JS.InvokeVoidAsync("highlightBlogPostCode");
+        }
+    }
+}

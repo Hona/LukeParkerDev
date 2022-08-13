@@ -1,0 +1,44 @@
+﻿@page "/blog/tags/{*Tag}"
+@using LukeParkerDev.Web.Services
+@using LukeParkerDev.Web.Models
+@using LukeParkerDev.Web.Blog.Components
+
+@inject BlogService BlogService
+
+<MudContainer MaxWidth="MaxWidth.Medium">
+    @if (_loading)
+    {
+        <MudProgressLinear Color="Color.Secondary" Indeterminate/>
+    }
+    else
+    {
+        <MudText Typo="Typo.h2" Class="mb-4">Tag: @Tag</MudText>
+
+        <BlogList Blogs="_blogsWithTag" />
+    }
+</MudContainer>
+
+@code {
+    private bool _loading;
+    
+    [Parameter]
+    public string Tag { get; set; } = null!;
+
+    private IReadOnlyList<LoadedBlog>? _blogsWithTag;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        ArgumentNullException.ThrowIfNull(Tag);
+
+        _loading = true;
+
+        var blogs = await BlogService.GetBlogPostsAsync();
+
+        _blogsWithTag = blogs.Where(x => x.Frontmatter.tags.Contains(Tag))
+            .ToList()
+            .AsReadOnly();
+
+        _loading = false;
+    }
+
+}
