@@ -1,11 +1,11 @@
 +++ 
-date: "2021-02-03"
+date: "2021-02-04"
 title: "Building a Beautiful OKR with AntBlazor - Part 2"
 slug: "building-a-beautiful-okr-with-antblazor/2"
 tags: ["Blazor", "AntDesign", "AntBlazor", "C#", "OKR"]
 categories: ["Development"]
 series: ["OKR"]
-authors: ["Luke Parker"]
+hook: "Building out the backend with core models and repository interfaces. Then, we mock the data for UI building!"
 +++
 
 ## Planning the Backend

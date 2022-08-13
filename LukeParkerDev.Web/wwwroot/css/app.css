@@ -1,4 +1,11 @@
-﻿.blog-markdown * {
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,400&display=swap');
+
+@font-face {
+    font-family: "JetBrains Mono Thin";
+    src: url("/fonts/JetbrainsMono-Thin.woff2") format("woff2");
+}
+
+.blog-markdown * {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -8,7 +15,7 @@
 }
 
 :root {
-    --background: #32333d;
+    --background: #192E39;
 }
 
 #preload {
@@ -743,4 +750,33 @@ canvas {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+h1 {
+    color: var(--mud-palette-text-primary);
+}
+
+h2 {
+    color: var(--mud-palette-text-secondary);
+}
+
+h3 {
+    color: var(--mud-palette-tertiary);
+}
+
+h4 {
+    color: var(--mud-palette-tertiary);
+}
+
+h5 {
+    color: var(--mud-palette-tertiary);
+}
+
+h6 {
+    color: var(--mud-palette-tertiary);
+}
+
+p {
+    color: var(--mud-palette-primary-text);
+    font-family: ;
 }

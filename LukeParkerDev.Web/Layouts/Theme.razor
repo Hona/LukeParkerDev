@@ -6,27 +6,104 @@
     {
         Palette = new Palette()
         {
-            Black = "#27272f",
-            Background = "#32333d",
-            BackgroundGrey = "#27272f",
-            Surface = "#373740",
-            DrawerBackground = "#27272f",
-            DrawerText = "rgba(255,255,255, 0.50)",
-            DrawerIcon = "rgba(255,255,255, 0.50)",
-            AppbarBackground = "#27272f",
-            AppbarText = "rgba(255,255,255, 0.70)",
-            TextPrimary = "rgba(255,255,255, 0.70)",
-            TextSecondary = "rgba(255,255,255, 0.50)",
-            ActionDefault = "#adadb1",
-            ActionDisabled = "rgba(255,255,255, 0.26)",
-            ActionDisabledBackground = "rgba(255,255,255, 0.12)",
-            Divider = "rgba(255,255,255, 0.12)",
-            DividerLight = "rgba(255,255,255, 0.06)",
-            TableLines = "rgba(255,255,255, 0.12)",
-            LinesDefault = "rgba(255,255,255, 0.12)",
-            LinesInputs = "rgba(255,255,255, 0.3)",
-            TextDisabled = "rgba(255,255,255, 0.2)"
+            // General Colors
+            Primary = "#EF476F",
+            Secondary = "#06D6A0",
+            Tertiary = "#FFD166",
+            
+            // Text Colors
+            TextPrimary = "#EF476F",
+            TextSecondary = "#06D6A0",
+            
+            // Status Colors
+            Info = "#06D6A0",
+            Success = "#000",
+            Warning = "#000",
+            Error = "#000",
+
+            // Background Colors,
+            Background = "#192E39",
+            AppbarBackground = "#192E39",
+            DrawerBackground = "#192E39",
+        
+            // Surface Colors
+            Surface = "#192E39",
+        },
+        Typography = new Typography()
+        {
+            H1 = new H1()
+            {
+                FontFamily = _headingFontFamilies,
+            },
+            H2 = new H2()
+            {
+                FontFamily = _headingFontFamilies
+            },
+            H3 = new H3()
+            {
+                FontFamily = _headingFontFamilies
+            },
+            H4 = new H4()
+            {
+                FontFamily = _headingFontFamilies
+            },
+            H5 = new H5()
+            {
+                FontFamily = _headingFontFamilies
+            },
+            H6 = new H6()
+            {
+                FontFamily = _headingFontFamilies
+            },
+            Body1 = new Body1()
+            {
+                FontFamily = _bodyFontFamilies
+            },
+            Body2 = new Body2()
+            {
+                FontFamily = _bodyFontFamilies
+            },
+            Caption = new Caption()
+            {
+                FontFamily = _bodyFontFamilies
+            },
+            Default = new Default()
+            {
+                FontFamily = _bodyFontFamilies
+            },
+            Button = new Button()
+            {
+                FontFamily = _bodyFontFamilies
+            },
+            Overline = new Overline()
+            {
+                FontFamily = _bodyFontFamilies
+            },
+            // TODO: Subtitles should use heading or body font family?
+            Subtitle1 = new Subtitle1()
+            {
+                FontFamily = _headingFontFamilies
+            },
+            Subtitle2 = new Subtitle2()
+            {
+                FontFamily = _headingFontFamilies
+            }
         }
+    };
+
+    private static readonly string[] _headingFontFamilies = new[]
+    {
+        "JetBrains Mono Thin",
+        "monospace"
+    };
+
+    private static readonly string[] _bodyFontFamilies = new[]
+    {
+        "Open Sans",
+        "Roboto",
+        "Helvetica", 
+        "Arial", 
+        "sans-serif"
     };
 }
 

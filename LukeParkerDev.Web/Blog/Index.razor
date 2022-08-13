@@ -8,42 +8,68 @@
 
 @inject HttpClient _httpClient
 
-@if (_loading)
-{
-    <MudProgressCircular Color="Color.Info"/>
-}
-else if (!string.IsNullOrWhiteSpace(Slug))
-{
-    if (_loadedPosts.TryGetValue(Slug, out var loadedPost))
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-6">
+    @if (_loading)
     {
-        <MudText Typo="Typo.h3">@loadedPost.Frontmatter.title</MudText>
-        <MudText Typo="Typo.caption">@loadedPost.Frontmatter.date</MudText>
-        <MudDivider />
-        <div class="blog-markdown">
-            @(new MarkupString(Markdown.ToHtml(loadedPost.Markdown)))
-        </div>
+        <MudProgressCircular Color="Color.Info"/>
+    }
+    else if (!string.IsNullOrWhiteSpace(Slug))
+    {
+        if (_loadedPosts.TryGetValue(Slug, out var loadedPost))
+        {
+            <MudText Typo="Typo.h3">@loadedPost.Frontmatter.title</MudText>
+            <MudText Typo="Typo.caption">@loadedPost.Frontmatter.date</MudText>
+            <MudDivider />
+            <div class="blog-markdown">
+                @(new MarkupString(Markdown.ToHtml(loadedPost.Markdown)))
+            </div>
+        }
+        else
+        {
+            <MudText Typo="Typo.body1" Color="Color.Warning">That post was not found</MudText>
+        }
     }
     else
     {
-        <MudText Typo="Typo.body1" Color="Color.Warning">That post was not found</MudText>
+        <MudText Typo="Typo.h2" Class="mb-4">Blog</MudText>
+
+        @foreach (var (slug, loadedPost) in _loadedPosts)
+        {
+            <MudCard Elevation="3" Class="mb-4">
+                @if (!string.IsNullOrWhiteSpace(loadedPost.Frontmatter.imageUrl))
+                {
+                    <MudCardMedia Image="@loadedPost.Frontmatter.imageUrl" Height="200"/>
+                }
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">
+                        <MudLink Color="Color.Inherit" Typo="Typo.inherit" Href="@("/blog/" + slug)">
+                            @loadedPost.Frontmatter.title
+                        </MudLink>
+                    </MudText>
+                    <MudText Typo="Typo.subtitle2">@loadedPost.Frontmatter.date</MudText>
+                    <MudText Typo="Typo.body2">@loadedPost.Frontmatter.hook</MudText>
+                    @if (loadedPost.Frontmatter.tags.Any() || loadedPost.Frontmatter.series.Any())
+                    {
+                        <MudChipSet ReadOnly Class="mt-2">
+                            @foreach (var series in loadedPost.Frontmatter.series)
+                            {
+                                <MudChip Size="Size.Small" Href="@("/blog/series/" + series)" Variant="Variant.Outlined" Color="Color.Secondary">
+                                    @series
+                                </MudChip>
+                            }
+                            @foreach (var tag in loadedPost.Frontmatter.tags)
+                            {
+                                <MudChip Size="Size.Small" Href="@("/blog/tags/" + tag)" Variant="Variant.Outlined" Color="Color.Tertiary">
+                                    @tag
+                                </MudChip>
+                            }
+                        </MudChipSet>
+                    }
+                </MudCardContent>
+            </MudCard>
+        }
     }
-}
-else
-{
-    <MudText Typo="Typo.h3">Blog</MudText>
-    
-    <MudList>
-    @foreach (var loadedPost in _loadedPosts)
-    {
-        <MudListItem>
-            @loadedPost.Value.Frontmatter.date
-            <MudLink Href="@("/posts/" + loadedPost.Value.Frontmatter.slug)" Color="Color.Info">
-                @loadedPost.Value.Frontmatter.title
-            </MudLink>
-        </MudListItem>
-    }
-    </MudList>
-}
+</MudContainer>
 
 @code
 {
@@ -53,7 +79,7 @@ else
         "/blog/2021-02-01-building-a-beautiful-okr-with-antblazor-part-0.md",
         "/blog/2021-02-02-building-a-beautiful-okr-with-antblazor-part-1.md",
         "/blog/2021-02-03-building-a-beautiful-okr-with-antblazor-part-2.md",
-        "/blog/building-a-beautiful-okr-with-antblazor-part-3.md"
+        "/blog/2021-02-04-building-a-beautiful-okr-with-antblazor-part-3.md"
     };
     
     // <Slug, Markdown>
@@ -72,15 +98,15 @@ else
             .WithNamingConvention(HyphenatedNamingConvention.Instance)
             .Build();
         
+        var cacheBuster = "?cacheBuster=" + Guid.NewGuid();
+        
         foreach (var blogFile in _blogFiles)
         {
-            var blogText = await _httpClient.GetStringAsync(blogFile);
+            var blogText = await _httpClient.GetStringAsync(blogFile + cacheBuster);
             var sections = blogText.Split("+++");
 
             var yamlSection = sections[1];
             var markdownSection = sections[2];
-
-            Console.WriteLine(yamlSection);
             
             var parsedYaml = yamlDeserializer.Deserialize<YamlFrontmatter>(yamlSection);
 
@@ -98,11 +124,12 @@ else
     {
         public string date { get; set; }
         public string title { get; set; }
+        public string hook { get; set; }
         public string slug { get; set; }
+        public string imageUrl { get; set; }
         public List<string> tags { get; set; }
         public List<string> categories { get; set; }
         public List<string> series { get; set; }
-        public List<string> authors { get; set; }
     }
 
     private class LoadedBlog
