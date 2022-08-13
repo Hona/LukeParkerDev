@@ -21,6 +21,8 @@
       <_ContentIncludedByDefault Remove="Shared\NavMenu.razor" />
       <_ContentIncludedByDefault Remove="Shared\SurveyPrompt.razor" />
       <_ContentIncludedByDefault Remove="Pages\Index.razor" />
+      <_ContentIncludedByDefault Remove="wwwroot\fonts\JetbrainsMono-Thin.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\fonts\JetBrainsMono-Thin.woff2" />
     </ItemGroup>
 
 </Project>
