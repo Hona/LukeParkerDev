@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="LibSassBuilder" Version="2.0.2" />
         <PackageReference Include="Markdig" Version="0.30.2" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.7" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.7" PrivateAssets="all" />
@@ -15,14 +16,17 @@
         <PackageReference Include="YamlDotNet" Version="11.2.1" />
     </ItemGroup>
 
+    <PropertyGroup>
+        <LibSassOutputStyle>compressed</LibSassOutputStyle>
+        <EnableDefaultSassItems>false</EnableDefaultSassItems>  
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <SassFile Include="wwwroot/css/styles.scss" />
+    </ItemGroup>
+    
     <ItemGroup>
       <_ContentIncludedByDefault Remove="wwwroot\sample-data\weather.json" />
-      <_ContentIncludedByDefault Remove="Shared\MainLayout.razor" />
-      <_ContentIncludedByDefault Remove="Shared\NavMenu.razor" />
-      <_ContentIncludedByDefault Remove="Shared\SurveyPrompt.razor" />
-      <_ContentIncludedByDefault Remove="Pages\Index.razor" />
-      <_ContentIncludedByDefault Remove="wwwroot\fonts\JetbrainsMono-Thin.woff" />
-      <_ContentIncludedByDefault Remove="wwwroot\fonts\JetBrainsMono-Thin.woff2" />
     </ItemGroup>
 
 </Project>
