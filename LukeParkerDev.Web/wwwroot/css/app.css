@@ -4,6 +4,23 @@
     color: var(--mud-palette-primary-text);
 }
 
+.blog-markdown ul {
+    list-style-type: disc;
+}
+
+.blog-markdown ol {
+    list-style-type: decimal;
+}
+
+.blog-markdown ul, .blog-markdown ol {
+    list-style-position: inside;
+    margin-left: 1.5rem;
+}
+
+.blog-markdown ul li, .blog-markdown ol li {
+    margin: 0 0.125rem;
+}
+
 .blog-markdown * {
     margin-top: 1rem;
     margin-bottom: 1rem;
