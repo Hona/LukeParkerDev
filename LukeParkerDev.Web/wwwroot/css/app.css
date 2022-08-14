@@ -1,78 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&family=Open+Sans:ital,wght@0,400;1,400&display=swap');
 
-.blog-markdown {
-    color: var(--mud-palette-primary-text);
-}
-
-.blog-markdown ul {
-    list-style-type: disc;
-}
-
-.blog-markdown ol {
-    list-style-type: decimal;
-}
-
-.blog-markdown ul, .blog-markdown ol {
-    list-style-position: inside;
-    margin-left: 1.5rem;
-}
-
-.blog-markdown ul li, .blog-markdown ol li {
-    margin: 0 0.125rem;
-}
-
-.blog-markdown * {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.blog-markdown a:hover {
-    text-decoration: underline;
-}
-
-.blog-markdown pre code {
-    box-shadow: #26547c 0 0 4px;
-    border-radius: 4px;
-}
-
-.blog-markdown img {
-    max-width: 50%;
-    display: block;
-    box-shadow: #26547c 0 0 10px;
-    margin: 0 auto;
-}
-
-.blog-markdown h1, .blog-markdown h2, .blog-markdown h3, .blog-markdown h4, .blog-markdown h5, .blog-markdown h6 {
-    font-family: var(--mud-typography-h3-family);
-}
-
-
-.blog-markdown h1, .blog-markdown h2 {
-    font-family: var(--mud-typography-h3-family);
-    margin-top: 3rem;
-}
-
-
-.blog-markdown h3, .blog-markdown h4, .blog-markdown h5, .blog-markdown h6 {
-    font-family: var(--mud-typography-h3-family);
-    margin-top: 2rem;
-}
-
-canvas {
-    width: 200% !important;
-    margin-left: -50%;
-    overflow: hidden;
-}
-
-.particle-container > * {
-    width: 100%;
-    height: 100%;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 h1 {
     color: var(--mud-palette-text-primary);
 }
@@ -104,13 +31,6 @@ p {
 .super-large, .super-large.mud-icon-button-size-large.mud-button>.mud-icon-button-label>.mud-icon-size-large {
     font-size: 3.5rem;
 }
-
-/* TODO: All variables scale down on mobile since its soooo big
-@media (max-width: 768px) {
-    :root {
-        --mud-typography-default-size: .5rem;
-    }
-}*/
 
 .hello-wrapper {
     justify-content: flex-end;
