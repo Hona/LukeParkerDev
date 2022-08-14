@@ -843,4 +843,13 @@ p {
     .hello-wrapper .mud-card {
         width: 90%;
     }
+    
+    :root {
+        --mud-typography-h1-size: calc(6rem * 0.67) !important;;
+        --mud-typography-h2-size: calc(3.75rem * 0.70) !important;;
+        --mud-typography-h3-size: calc(3rem * 0.73) !important;;
+        --mud-typography-h4-size: calc(2.125rem * 0.76) !important;;
+        --mud-typography-h5-size: calc(1.5rem * 0.79) !important;;
+        --mud-typography-h6-size: calc(1.25rem * 0.82) !important;
+    }
 }
