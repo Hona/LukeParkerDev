@@ -1,6 +1,6 @@
-﻿namespace LukeParkerDev.Web.Models;
+﻿namespace LukeParkerDev.Blog.Models;
 
-public class YamlFrontmatter
+public class BlogFrontmatter
 {
     public string date { get; set; } = string.Empty;
     public string title { get; set; } = string.Empty;

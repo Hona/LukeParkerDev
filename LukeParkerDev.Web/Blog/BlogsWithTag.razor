@@ -1,6 +1,4 @@
 ﻿@page "/blog/tags/{*Tag}"
-@using LukeParkerDev.Web.Services
-@using LukeParkerDev.Web.Models
 @using LukeParkerDev.Web.Blog.Components
 
 @inject BlogService BlogService
@@ -24,7 +22,7 @@
     [Parameter]
     public string Tag { get; set; } = null!;
 
-    private IReadOnlyList<LoadedBlog>? _blogsWithTag;
+    private IReadOnlyList<BlogIndex>? _blogsWithTag;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -32,7 +30,7 @@
 
         _loading = true;
 
-        var blogs = await BlogService.GetBlogPostsAsync();
+        var blogs = await BlogService.GetAllPostsAsync();
 
         _blogsWithTag = blogs.Where(x => x.Frontmatter.tags.Contains(Tag))
             .ToList()

@@ -1,6 +1,4 @@
 ﻿@page "/blog/series/{*Series}"
-@using LukeParkerDev.Web.Services
-@using LukeParkerDev.Web.Models
 @using LukeParkerDev.Web.Blog.Components
 
 @inject BlogService BlogService
@@ -24,7 +22,7 @@
     [Parameter]
     public string Series { get; set; } = null!;
 
-    private IReadOnlyList<LoadedBlog>? _series;
+    private IReadOnlyList<BlogIndex>? _series;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -32,7 +30,7 @@
         
         _loading = true;
 
-        var posts = await BlogService.GetBlogPostsAsync();
+        var posts = await BlogService.GetAllPostsAsync();
         
         _series = posts.Where(p => p.Frontmatter.series.Contains(Series))
             .ToList()

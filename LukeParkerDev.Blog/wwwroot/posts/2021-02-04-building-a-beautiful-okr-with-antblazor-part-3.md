@@ -91,7 +91,7 @@ OKR.Web/wwwroot/css/site.css
 
 Delete everything from the file leaving just the Blazor error UI - which is the bar on the bottom.
 
-![asdf](/uploads/blazor-error-ui.PNG)
+![](_content/LukeParkerDev.Blog/uploads/blazor-error-ui.PNG)
 
 ## Using Forwarded Headers
 
@@ -123,7 +123,7 @@ OKR.Web/Pages/Index.razor
 
 You should see the following:
 
-![](/uploads/antblazor-primary-button.PNG)
+![](_content/LukeParkerDev.Blog/uploads/antblazor-primary-button.PNG)
 
 If you got this far, you are doing great!
 
@@ -161,7 +161,7 @@ Lets replace the OKR.Web/Shared/MainLayout.razor with the following (using AntBl
 
 Your layout should look similar to this:
 
-![](/uploads/okr-layout.PNG)
+![](_content/LukeParkerDev.Blog/uploads/okr-layout.PNG)
 
 At this point we have a consistent visual story without thinking and we can begin designing the OKR cards. For the dashboard, we should have an overview of each OKR. The perfect component for this is the [Card](https://antblazor.com/en-US/components/card).
 
@@ -227,7 +227,7 @@ Note that there is the `Class` property, instead of `class`. This is a custom An
 
 Try running it, and you should get something that looks like this:
 
-![](/uploads/okr-initial-card.PNG)
+![](_content/LukeParkerDev.Blog/uploads/okr-initial-card.PNG)
 
 ***
 

@@ -6,6 +6,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4D2FE3F6-8E3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LukeParkerDev.Web", "LukeParkerDev.Web\LukeParkerDev.Web.csproj", "{43495F97-2035-4620-9016-97F5E2521C37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LukeParkerDev.Blog", "LukeParkerDev.Blog\LukeParkerDev.Blog.csproj", "{4DAB0E6C-8461-4901-9E72-C1CC54AD81E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LukeParkerDev.Blog.BuildJob", "LukeParkerDev.Blog.BuildJob\LukeParkerDev.Blog.BuildJob.csproj", "{50B205D4-6ACA-4EB4-9BCC-DF279F0CAF69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,11 +17,21 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{43495F97-2035-4620-9016-97F5E2521C37} = {4D2FE3F6-8E38-4F51-A817-9E4F231B43AB}
+		{4DAB0E6C-8461-4901-9E72-C1CC54AD81E7} = {4D2FE3F6-8E38-4F51-A817-9E4F231B43AB}
+		{50B205D4-6ACA-4EB4-9BCC-DF279F0CAF69} = {4D2FE3F6-8E38-4F51-A817-9E4F231B43AB}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{43495F97-2035-4620-9016-97F5E2521C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{43495F97-2035-4620-9016-97F5E2521C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43495F97-2035-4620-9016-97F5E2521C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43495F97-2035-4620-9016-97F5E2521C37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DAB0E6C-8461-4901-9E72-C1CC54AD81E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DAB0E6C-8461-4901-9E72-C1CC54AD81E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DAB0E6C-8461-4901-9E72-C1CC54AD81E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DAB0E6C-8461-4901-9E72-C1CC54AD81E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50B205D4-6ACA-4EB4-9BCC-DF279F0CAF69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B205D4-6ACA-4EB4-9BCC-DF279F0CAF69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B205D4-6ACA-4EB4-9BCC-DF279F0CAF69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B205D4-6ACA-4EB4-9BCC-DF279F0CAF69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,4 @@
 ﻿@page "/blog"
-@using LukeParkerDev.Web.Models
-@using LukeParkerDev.Web.Services
 @using LukeParkerDev.Web.Blog.Components
 
 @inject BlogService BlogService
@@ -20,13 +18,13 @@
 
 @code {
     private bool _loading;
-    private IReadOnlyList<LoadedBlog>? _loadedBlogs;
+    private IReadOnlyList<BlogIndex>? _loadedBlogs;
 
     protected override async Task OnInitializedAsync()
     {
         _loading = true;
 
-        _loadedBlogs = await BlogService.GetBlogPostsAsync();
+        _loadedBlogs = await BlogService.GetAllPostsAsync();
 
         _loading = false;
     }

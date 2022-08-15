@@ -1,5 +1,4 @@
-﻿@using LukeParkerDev.Web.Models
-
+﻿@using LukeParkerDev.Blog.Models
 @foreach (var loadedPost in Blogs.OrderByDescending(x => x.Frontmatter.date))
 {
     <MudCard Elevation="3" Class="mb-4">
@@ -16,14 +15,14 @@
             <MudText Typo="Typo.subtitle2">@loadedPost.Frontmatter.date</MudText>
             <MudText Typo="Typo.body2">@loadedPost.Frontmatter.hook</MudText>
 
-            <BlogChipList Blog="loadedPost"/>
+            <BlogChipList Frontmatter="loadedPost.Frontmatter"/>
         </MudCardContent>
     </MudCard>
 }
 
 @code {
     [Parameter]
-    public IReadOnlyList<LoadedBlog> Blogs { get; set; } = null!;
+    public IReadOnlyList<BlogIndex> Blogs { get; set; } = null!;
 
     protected override void OnParametersSet()
     {

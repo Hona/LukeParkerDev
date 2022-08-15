@@ -1,8 +1,6 @@
 ﻿@page "/blog/{*Slug}"
 
 @using Markdig
-@using LukeParkerDev.Web.Services
-@using LukeParkerDev.Web.Models
 @using LukeParkerDev.Web.Blog.Components
 
 @inject IJSRuntime JS
@@ -13,26 +11,21 @@
     {
         <MudProgressLinear Color="Color.Secondary" Indeterminate/>
     }
+    else if (_blog is not null)
+    {
+        <MudText Typo="Typo.h3">@_blog.Frontmatter.title</MudText>
+        <MudText Typo="Typo.subtitle2">@_blog.Frontmatter.date</MudText>
+        <div style="display: flex; justify-content: center; align-items: center; width: 100%">
+            <BlogChipList Frontmatter="_blog.Frontmatter"/>
+        </div>
+
+        <div class="blog-markdown">
+            @(new MarkupString(Markdown.ToHtml(_blog.Markdown)))
+        </div>
+    }
     else
     {
-        var selectedBlog = _loadedBlogs?.FirstOrDefault(x => x.Frontmatter.slug == Slug);
-
-        if (selectedBlog is not null)
-        {
-            <MudText Typo="Typo.h3">@selectedBlog.Frontmatter.title</MudText>
-            <MudText Typo="Typo.subtitle2">@selectedBlog.Frontmatter.date</MudText>
-            <div style="display: flex; justify-content: center; align-items: center; width: 100%">
-                <BlogChipList Blog="selectedBlog"/>
-            </div>
-
-            <div class="blog-markdown">
-                @(new MarkupString(Markdown.ToHtml(selectedBlog.Markdown)))
-            </div>
-        }
-        else
-        {
-            <MudText Typo="Typo.body1" Color="Color.Warning">That post was not found</MudText>
-        }
+        <MudText Typo="Typo.body1" Color="Color.Warning">That post was not found</MudText>
     }
 
 </MudContainer>
@@ -41,7 +34,7 @@
 {
     private bool _loading;
 
-    private IReadOnlyList<LoadedBlog>? _loadedBlogs;
+    private LoadedBlog? _blog;
 
     [Parameter]
     public string? Slug { get; set; }
@@ -50,15 +43,14 @@
     {
         _loading = true;
 
-        _loadedBlogs = await BlogService.GetBlogPostsAsync();
+        _blog = await BlogService.GetPostAsync(Slug);
 
         _loading = false;
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (!_loading && !string.IsNullOrWhiteSpace(Slug) && _loadedBlogs is not null
-            && _loadedBlogs.Any(x => x.Frontmatter.slug == Slug))
+        if (!_loading && _blog is not null)
         {
             await JS.InvokeVoidAsync("highlightBlogPostCode");
         }

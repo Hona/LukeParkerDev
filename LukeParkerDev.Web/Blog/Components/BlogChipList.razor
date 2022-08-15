@@ -1,15 +1,14 @@
-﻿@using LukeParkerDev.Web.Models
-
-@if (Blog.Frontmatter.tags.Any() || Blog.Frontmatter.series.Any())
+﻿@using LukeParkerDev.Blog.Models
+@if (Frontmatter.tags.Any() || Frontmatter.series.Any())
 {
     <MudChipSet Class="mt-2">
-        @foreach (var series in Blog.Frontmatter.series)
+        @foreach (var series in Frontmatter.series)
         {
             <MudChip Size="ChipSize" Href="@("/blog/series/" + Uri.EscapeDataString(series))" Variant="ChipVariant" Color="Color.Secondary">
                 @series
             </MudChip>
         }
-        @foreach (var tag in Blog.Frontmatter.tags)
+        @foreach (var tag in Frontmatter.tags)
         {
             <MudChip Size="ChipSize" Href="@("/blog/tags/" + Uri.EscapeDataString(tag))" Variant="ChipVariant" Color="Color.Tertiary">
                 @tag
@@ -20,7 +19,7 @@
 
 @code {
     [Parameter]
-    public LoadedBlog Blog { get; set; } = null!;
+    public BlogFrontmatter Frontmatter { get; set; } = null!;
 
     [Parameter]
     public Size ChipSize { get; set; }
@@ -30,7 +29,7 @@
 
     protected override void OnParametersSet()
     {
-        ArgumentNullException.ThrowIfNull(Blog);
+        ArgumentNullException.ThrowIfNull(Frontmatter);
     }
 
 }

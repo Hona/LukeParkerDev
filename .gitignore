@@ -452,3 +452,8 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+### Custom
+
+# index generated at build
+LukeParkerDev.Blog/wwwroot/index.json
