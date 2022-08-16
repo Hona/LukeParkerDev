@@ -200,4 +200,4 @@ If all goes well, navigate to the domain you setup, and you should see the defau
 
 In the next post, I will plan and setup the core models, repository interfaces and mock repositories.
 
-[← Part 0](https://lukeparker.dev/posts/building-a-beautiful-okr-with-antblazor/0) | [Part 2 →](https://lukeparker.dev/posts/building-a-beautiful-okr-with-antblazor/2)
+[← Part 0](https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/0) | [Part 2 →](https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/2)

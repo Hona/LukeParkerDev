@@ -234,4 +234,4 @@ Try running it, and you should get something that looks like this:
 In this post we got started with building a component using the AntBlazor library.
 In the next post, I continue the UI layout with AntBlazor.
 
-[← Part 2](https://lukeparker.dev/posts/building-a-beautiful-okr-with-antblazor/2) | [Part 4 →](https://lukeparker.dev/posts/building-a-beautiful-okr-with-antblazor/4)
+[← Part 2](https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/2)
