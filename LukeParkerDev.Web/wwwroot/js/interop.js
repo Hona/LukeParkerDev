@@ -14,11 +14,10 @@ window.scrollDownFullPage = function() {
     });
 }
 
-window.loadDisqus = function(relativeUrl, slug) {
-    window.disqus_config = function () {
-        this.page.url = relativeUrl;  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = slug; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
+window.loadDisqus = function(relativeUrl, slug, title) {
+    this.page.url = relativeUrl; 
+    this.page.identifier = slug;
+    this.page.title = title;
 
     const d = document,
         s = d.createElement('script');

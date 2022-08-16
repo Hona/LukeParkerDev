@@ -58,7 +58,7 @@
         if (!_loading && _blog is not null)
         {
             await JS.InvokeVoidAsync("highlightBlogPostCode");
-            await JS.InvokeVoidAsync("loadDisqus", NavigationManager.Uri, _blog.Frontmatter.slug);
+            await JS.InvokeVoidAsync("loadDisqus", NavigationManager.Uri, _blog.Frontmatter.slug, _blog.Frontmatter.title);
         }
     }
 }
