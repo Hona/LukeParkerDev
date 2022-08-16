@@ -5,6 +5,7 @@
 
 @inject IJSRuntime JS
 @inject BlogService BlogService
+@inject NavigationManager NavigationManager
 
 <MudContainer MaxWidth="MaxWidth.Medium" Class="mt-6">
     @if (_loading)
@@ -22,6 +23,10 @@
         <div class="blog-markdown">
             @(new MarkupString(Markdown.ToHtml(_blog.Markdown)))
         </div>
+        
+        <MudDivider Class="my-6" />
+        
+        <div id="disqus_thread"></div>
     }
     else
     {
@@ -53,6 +58,7 @@
         if (!_loading && _blog is not null)
         {
             await JS.InvokeVoidAsync("highlightBlogPostCode");
+            await JS.InvokeVoidAsync("loadDisqus", NavigationManager.Uri, _blog.Frontmatter.slug);
         }
     }
 }
