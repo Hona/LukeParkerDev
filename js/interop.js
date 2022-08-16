@@ -15,10 +15,12 @@ window.scrollDownFullPage = function() {
 }
 
 window.loadDisqus = function(relativeUrl, slug, title) {
-    this.page.url = relativeUrl; 
-    this.page.identifier = slug;
-    this.page.title = title;
-
+    window.disqus_config = function () {
+        this.page.url = relativeUrl;
+        this.page.identifier = slug;
+        this.page.title = title;
+    };
+    
     const d = document,
         s = d.createElement('script');
     s.src = 'https://lukeparker-dev.disqus.com/embed.js';
