@@ -11,8 +11,4 @@
       <ProjectReference Include="..\LukeParkerDev.Blog\LukeParkerDev.Blog.csproj" />
     </ItemGroup>
 
-    <Target Name="RunBlogBuildJob" AfterTargets="Build">
-        <Exec Command="$(OutputPath)\$(AssemblyName).$(OutputType)" />
-    </Target>
-
 </Project>

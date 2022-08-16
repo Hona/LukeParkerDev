@@ -39,8 +39,4 @@
     <ItemGroup>
       <Folder Include="Models" />
     </ItemGroup>
-    
-    <Target Name="GenerateBlogIndex" AfterTargets="Build">
-        <Exec Command="dotnet run --project ..\LukeParkerDev.Blog.BuildJob\LukeParkerDev.Blog.BuildJob.csproj -c $(Configuration)" />
-    </Target>
 </Project>
