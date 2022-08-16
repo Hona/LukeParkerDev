@@ -241,4 +241,4 @@ Now we have some mock repositories return *some* data.
 
 In the next post, I begin the UI with AntBlazor, using the mock data.
 
-[← Part 1](https://lukeparker.dev/posts/building-a-beautiful-okr-with-antblazor/1) | [Part 3 →](https://lukeparker.dev/posts/building-a-beautiful-okr-with-antblazor/3)
+[← Part 1](https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/1) | [Part 3 →](https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/3)

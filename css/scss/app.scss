@@ -36,6 +36,14 @@ p {
     width: 50%;
   }
 }
+#blazor-error-ui {
+  background-color: rgb(236,39,85); // primary darken
+  color: white;
+  
+  a {
+    color: white;
+  }
+}
 @media (max-width: 768px) {
   .hello-wrapper {
     justify-content: center;
