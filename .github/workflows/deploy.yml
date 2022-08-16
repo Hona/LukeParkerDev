@@ -17,7 +17,7 @@ jobs:
         dotnet-version: 6.x
         include-prerelease: true
     - name: Run Blog.BuildJob
-      run: dotnet run LukeParkerDev.Blog.BuildJob/LukeParkerDev.Blog.BuildJob.csproj -c Release
+      run: dotnet run --project LukeParkerDev.Blog.BuildJob/LukeParkerDev.Blog.BuildJob.csproj -c Release
     - name: Publish 
       run: dotnet publish LukeParkerDev.Web/LukeParkerDev.Web.csproj -c Release -o release --nologo
     - name: Deploy to CloudFlare Pages
