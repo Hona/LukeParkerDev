@@ -69,4 +69,4 @@ In this blog series I am going to show you how easy it is to build a beautiful f
 
 In the next post, I will setup the project boilerplate and full DevOps.
 
-[Part 1 →](https://lukeparker.dev/posts/building-a-beautiful-okr-with-antblazor/1)
+[Part 1 →](https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/1)
