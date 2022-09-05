@@ -19,7 +19,7 @@
     public string? Overview { get; set; }
 
     [Parameter]
-    public List<string> Keywords { get; set; } = new();
+    public IEnumerable<string> Keywords { get; set; } = new List<string>();
     
     string GetTitle() => Title is null ? "LukeParkerDev" : $"{Title} | LukeParkerDev";
     
