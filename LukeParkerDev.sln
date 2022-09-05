@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LukeParkerDev.Web", "LukePa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LukeParkerDev.Blog", "LukeParkerDev.Blog\LukeParkerDev.Blog.csproj", "{4DAB0E6C-8461-4901-9E72-C1CC54AD81E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LukeParkerDev.Blog.BuildJob", "LukeParkerDev.Blog.BuildJob\LukeParkerDev.Blog.BuildJob.csproj", "{50B205D4-6ACA-4EB4-9BCC-DF279F0CAF69}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LukeParkerDev.BuildJob", "LukeParkerDev.BuildJob\LukeParkerDev.BuildJob.csproj", "{50B205D4-6ACA-4EB4-9BCC-DF279F0CAF69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

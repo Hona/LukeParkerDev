@@ -7,6 +7,7 @@
 @inject BlogService BlogService
 @inject NavigationManager NavigationManager
 
+
 <MudContainer MaxWidth="MaxWidth.Medium" Class="mt-6">
     @if (_loading)
     {
@@ -14,6 +15,8 @@
     }
     else if (_blog is not null)
     {
+        <SeoHeader Title="@_blog.Frontmatter.title" Overview="@_blog.Frontmatter.hook" Keywords="_blog.Frontmatter.categories.Concat(_blog.Frontmatter.series).Concat(_blog.Frontmatter.tags)" />
+
         <MudText Typo="Typo.h3">@_blog.Frontmatter.title</MudText>
         <MudText Typo="Typo.subtitle2">@_blog.Frontmatter.date</MudText>
         <div style="display: flex; justify-content: center; align-items: center; width: 100%">
@@ -39,7 +42,7 @@
 {
     private bool _loading;
 
-    private LoadedBlog? _blog;
+    private BlogPost? _blog;
 
     [Parameter]
     public string? Slug { get; set; }

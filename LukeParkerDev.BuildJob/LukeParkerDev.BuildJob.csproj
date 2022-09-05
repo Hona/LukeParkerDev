@@ -9,6 +9,11 @@
 
     <ItemGroup>
       <ProjectReference Include="..\LukeParkerDev.Blog\LukeParkerDev.Blog.csproj" />
+      <ProjectReference Include="..\LukeParkerDev.Web\LukeParkerDev.Web.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="xsitemap" Version="2.7.0" />
     </ItemGroup>
 
 </Project>

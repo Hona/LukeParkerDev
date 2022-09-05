@@ -52,7 +52,7 @@ public class BlogService
         return _cachedIndex;
     }
 
-    public async Task<LoadedBlog?> GetPostAsync(string? slug)
+    public async Task<BlogPost?> GetPostAsync(string? slug)
     {
         var index = await GetAllPostsAsync();
         
@@ -67,14 +67,14 @@ public class BlogService
         return ParseBlog(blogRaw);
     }
 
-    public LoadedBlog ParseBlog(string blogRaw)
+    public BlogPost ParseBlog(string blogRaw)
     {
         var sections = blogRaw.Split("+++");
 
         // Less than 3 sections than this blog is probably an empty file, or invalid possibly - either way its malformed
         if (sections.Length < 3)
         {
-            return new LoadedBlog();
+            return new BlogPost();
         }
         
         var yamlSection = sections[1];
@@ -82,7 +82,7 @@ public class BlogService
             
         var parsedYaml = _yamlDeserializer.Deserialize<BlogFrontmatter>(yamlSection);
 
-        return new LoadedBlog
+        return new BlogPost
         {
             Frontmatter = parsedYaml,
             Markdown = markdownSection

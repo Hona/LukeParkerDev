@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace LukeParkerDev.Blog.BuildJob;
+namespace LukeParkerDev.BuildJob;
 
 public class SourceCode
 {

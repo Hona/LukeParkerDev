@@ -1,0 +1,45 @@
+﻿<PageTitle>@(GetTitle())</PageTitle>
+<HeadContent>
+    <meta Name="keywords" Content="@GetKeywords()" />
+    <meta Property="og:title" Content="@GetTitle()" />
+    <meta Name="twitter:title" Content="@GetTitle()" />
+    @if (!string.IsNullOrEmpty(Overview))
+    {
+        <meta Name="description" Content="@(GetSubTitle)" />
+        <meta Property="og:description" Content="@GetSubTitle" />
+        <meta Name="twitter:description" Content="@GetSubTitle" />
+    }
+</HeadContent>
+
+@code {
+    [Parameter]
+    public string? Title { get; set; }
+    
+    [Parameter]
+    public string? Overview { get; set; }
+
+    [Parameter]
+    public List<string> Keywords { get; set; } = new();
+    
+    string GetTitle() => Title is null ? "LukeParkerDev" : $"{Title} | LukeParkerDev";
+    
+    string GetSubTitle()
+    {
+        if (string.IsNullOrEmpty(Overview))
+            return "";
+        return Overview.TrimEnd('.') + ".";
+    }
+    
+    string GetKeywords()
+    {
+        var keywords = new List<string>();
+        
+        keywords.AddRange(Keywords);
+        
+        keywords.Add("lukeparkerdev");
+        keywords.Add("mudblazor");
+        keywords.Add("blazor");
+
+        return string.Join(", ", keywords);
+    }
+}

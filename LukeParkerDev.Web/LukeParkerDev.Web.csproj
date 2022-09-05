@@ -9,8 +9,9 @@
     <ItemGroup>
         <PackageReference Include="LibSassBuilder" Version="2.0.2" />
         <PackageReference Include="Markdig" Version="0.30.2" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.7" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.7" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.8" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="6.0.8" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.8" PrivateAssets="all" />
         <PackageReference Include="MudBlazor" Version="6.0.11" />
         <PackageReference Include="MudBlazor.ThemeManager" Version="1.0.6" />
     </ItemGroup>
