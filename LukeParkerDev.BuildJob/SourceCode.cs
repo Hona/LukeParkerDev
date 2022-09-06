@@ -2,7 +2,7 @@
 
 namespace LukeParkerDev.BuildJob;
 
-public class SourceCode
+public static class SourceCode
 {
     private static string? GetThisFilePath([CallerFilePath] string? path = null)
     {

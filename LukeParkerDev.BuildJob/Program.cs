@@ -1,10 +1,9 @@
 ﻿using System.Globalization;
 using System.Text.Json;
-using System.Threading.Channels;
 using LukeParkerDev.BuildJob;
 using LukeParkerDev.Blog.Models;
 using LukeParkerDev.Blog.Services;
-using X.Web.Sitemap;
+using SimpleSiteMap;
 
 Console.WriteLine("*** Starting Build Job ***");
 
@@ -48,44 +47,31 @@ Console.WriteLine("Done");
 Console.WriteLine();
 Console.WriteLine("> Generating sitemap ");
 
-var sitemap = new Sitemap();
+var sitemap = new List<SitemapNode>();
 
-var baseUri = "https://lukeparker.dev";
+var baseUri = new Uri("https://lukeparker.dev");
 
 Console.WriteLine("Generating blog locations");
-foreach (var blog in index)
-{
-    sitemap.Add(new Url
-    {
-        Location = baseUri + $"/blog/{blog.Frontmatter.slug}",
-        LastMod = blog.Frontmatter.date,
-        Priority = 0.9,
-        ChangeFrequency = ChangeFrequency.Daily
-    });
-}
+
+sitemap.AddRange(index.Select(blog 
+    => new SitemapNode(new Uri(baseUri, $"/blog/{blog.Frontmatter.slug}"),
+        DateTime.ParseExact(blog.Frontmatter.date, "yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo))));
 
 Console.WriteLine("Generating static locations");
-sitemap.Add(new Url
-{
-    Location = baseUri + "/blog",
-    LastMod = index
-        .Select(x => x.Frontmatter.date)
-        .OrderByDescending(x => DateTime.ParseExact(x, "yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo))
-        .First(),
-    Priority = 1,
-    ChangeFrequency = ChangeFrequency.Daily
-});
+sitemap.Add(new SitemapNode(new Uri(baseUri, "/blog"), DateTime.Now));
 
-sitemap.Add(new Url
-{
-    Location = baseUri + "/",
-    Priority = 1,
-    ChangeFrequency = ChangeFrequency.Weekly
-});
+sitemap.Add(new SitemapNode(baseUri, DateTime.Now));
 
 var sitemapPath = currentCodeDirectory + "/../LukeParkerDev.Web/wwwroot/sitemap.xml";
 
-await sitemap.SaveAsync(sitemapPath);
+var sitemapService = new SitemapService();
+var urlSetSerialized = sitemapService.ConvertToXmlUrlset(sitemap);
+
+File.Delete(sitemapPath);
+await using var textWriter = File.CreateText(sitemapPath);
+await textWriter.WriteAsync(urlSetSerialized);
+
+Console.WriteLine("Saved to " + File.ResolveLinkTarget(sitemapPath, true));
 
 Console.WriteLine("Done");
 
