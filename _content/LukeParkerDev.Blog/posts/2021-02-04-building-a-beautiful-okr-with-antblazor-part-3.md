@@ -5,6 +5,7 @@ series: ["OKR"]
 slug: "building-a-beautiful-okr-with-antblazor/3"
 tags: ["C#", "AntBlazor", "AntDesign", "Blazor"]
 title: "Building a Beautiful OKR with AntBlazor - Part 3"
+hook: "Building out the frontend with AntBlazor components."
 +++
 ## Setup AntBlazor
 
