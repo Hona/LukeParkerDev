@@ -22,9 +22,13 @@
 
     [Parameter]
     public IEnumerable<string> Keywords { get; set; } = new List<string>();
+
+    private bool _parametersSet;
     
     string GetTitle() => Title is null ? "LukeParkerDev" : $"{Title} | LukeParkerDev";
-    
+
+    protected override void OnParametersSet() => _parametersSet = true;
+
     string GetSubTitle()
     {
         if (string.IsNullOrEmpty(Overview))
@@ -47,10 +51,11 @@
     
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (firstRender)
+        if (_parametersSet && !firstRender)
         {
             await JS.InvokeVoidAsync("fullyRendered", true);
         }
+
         
         await base.OnAfterRenderAsync(firstRender);
     }
