@@ -4,6 +4,7 @@ using LukeParkerDev.BuildJob;
 using LukeParkerDev.Blog.Models;
 using LukeParkerDev.Blog.Services;
 using SimpleSiteMap;
+using WilderMinds.RssSyndication;
 
 Console.WriteLine("*** Starting Build Job ***");
 
@@ -72,6 +73,38 @@ await using var textWriter = File.CreateText(sitemapPath);
 await textWriter.WriteAsync(urlSetSerialized);
 
 Console.WriteLine("Saved to " + File.ResolveLinkTarget(sitemapPath, true));
+
+Console.WriteLine("> Generating RSS feed ");
+
+var feed = new Feed
+{
+    Title = "LukeParkerDev",
+    Description = "My personal website acting as a personal portfolio as well as a blog to share my knowledge.",
+    Link = new Uri("https://lukeparker.dev/blog"),
+    Copyright = "(c) 2022",
+    Language = "en-au"
+};
+
+feed.Items = index.Select(x => new Item
+{
+    Title = x.Frontmatter.title,
+    Body = x.Frontmatter.hook,
+    Link = new Uri(baseUri, $"/blog/{x.Frontmatter.slug}"),
+    Permalink = x.Frontmatter.slug,
+    PublishDate = DateTime.ParseExact(x.Frontmatter.date, "yyyy-MM-dd", DateTimeFormatInfo.CurrentInfo),
+    Author = new Author { Name = "Luke Parker", Email = "lukeparkerdev@outlook.com" }
+}).ToList();
+
+
+var rssPath = currentCodeDirectory + "/../LukeParkerDev.Web/wwwroot/blog.rss";
+
+Console.WriteLine("Saving");
+
+var rssSerialized = feed.Serialize();
+
+File.Delete(rssPath);
+await using var rssTextWriter = File.CreateText(rssPath);
+await rssTextWriter.WriteAsync(rssSerialized);
 
 Console.WriteLine("Done");
 
