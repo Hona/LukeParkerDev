@@ -1,4 +1,6 @@
-﻿<PageTitle>@(GetTitle())</PageTitle>
+﻿@inject IJSRuntime JS
+
+<PageTitle>@(GetTitle())</PageTitle>
 <HeadContent>
     <meta Name="keywords" Content="@GetKeywords()" />
     <meta Property="og:title" Content="@GetTitle()" />
@@ -41,5 +43,15 @@
         keywords.Add("blazor");
 
         return string.Join(", ", keywords);
+    }
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("fullyRendered", true);
+        }
+        
+        await base.OnAfterRenderAsync(firstRender);
     }
 }

@@ -1,5 +1,4 @@
-﻿@inject IJSRuntime JS
-
+﻿
 <Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
@@ -14,16 +13,3 @@
 
 <MudDialogProvider/>
 <MudSnackbarProvider/>
-
-@code
-{
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await JS.InvokeVoidAsync("fullyRendered", true);
-        }
-        
-        await base.OnAfterRenderAsync(firstRender);
-    }
-}
