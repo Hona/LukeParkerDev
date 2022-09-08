@@ -7,9 +7,9 @@
     <meta Name="twitter:title" Content="@GetTitle()" />
     @if (!string.IsNullOrEmpty(Overview))
     {
-        <meta Name="description" Content="@(GetSubTitle())" />
-        <meta Property="og:description" Content="@(GetSubTitle())" />
-        <meta Name="twitter:description" Content="@(GetSubTitle())" />
+        <meta Name="description" Content="@GetSubTitle()" />
+        <meta Property="og:description" Content="@GetSubTitle()" />
+        <meta Name="twitter:description" Content="@GetSubTitle()" />
     }
 </HeadContent>
 
@@ -56,7 +56,6 @@
             await JS.InvokeVoidAsync("fullyRendered", true);
         }
 
-        
         await base.OnAfterRenderAsync(firstRender);
     }
 }

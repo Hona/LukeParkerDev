@@ -31,14 +31,20 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://lukeparker.dev/blog/blazor-wasm-seo</loc>
+    <lastmod>2022-09-08T00:00:00+10:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://lukeparker.dev/blog</loc>
-    <lastmod>2022-09-06T11:26:01+10:00</lastmod>
+    <lastmod>2022-09-08T14:58:47+10:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://lukeparker.dev/</loc>
-    <lastmod>2022-09-06T11:26:01+10:00</lastmod>
+    <lastmod>2022-09-08T14:58:47+10:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
