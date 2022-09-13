@@ -55,5 +55,13 @@
       <guid>blazor-wasm-seo</guid>
       <pubDate>Thu, 08 Sep 2022 00:00:00 GMT</pubDate>
     </item>
+    <item>
+      <title>Rapid Backend Development with Marten DB</title>
+      <link>https://lukeparker.dev/blog/rapid-development-with-marten-db</link>
+      <description>Building a personal project can be exciting, but it can also be a lot of work. In this post, I will go over how to use Marten DB to quickly build a backend for your project.</description>
+      <author>lukeparkerdev@outlook.com (Luke Parker)</author>
+      <guid>rapid-development-with-marten-db</guid>
+      <pubDate>Tue, 13 Sep 2022 00:00:00 GMT</pubDate>
+    </item>
   </channel>
 </rss>
