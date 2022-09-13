@@ -61,4 +61,12 @@
     font-family: var(--mud-typography-h3-family);
     margin-top: 2rem;
   }
+  blockquote {
+    color: var(--mud-palette-info-darken);
+    background-color: var(--mud-palette-info-hover);
+    display: flex;
+    padding: 6px 16px;
+    border-radius: var(--mud-default-borderradius);
+    transition: box-shadow 300ms cubic-bezier(.4,0,.2,1) 0ms;
+  }
 }
