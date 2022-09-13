@@ -47,7 +47,7 @@
     [Parameter]
     public string? Slug { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
         _loading = true;
 
