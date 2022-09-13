@@ -8,7 +8,7 @@
   "resources": {
     "assembly": {
       "LukeParkerDev.Blog.dll": "sha256-y6SAaOqd\/iEjDKcLW2kH\/KFqj+BecaXkyB09t9rA7Nk=",
-      "LukeParkerDev.Web.dll": "sha256-qw4aZWOWYWBb8D3RH4Vqc2W7LvFgabdwWKv5VPk826k=",
+      "LukeParkerDev.Web.dll": "sha256-MuyUP8wcE6NBH0vu\/HoJJ\/+2zeHSdIeMXIAbpe6k4cw=",
       "Markdig.dll": "sha256-\/qKhOo2ZbkSd56j45qUCUGYRyBMnR0dmDkWfZfLJKeo=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-UB1GSyQzhl3Grj0BcPPzSo6u8aQAbYpFe27++BGSSfU=",
       "Microsoft.AspNetCore.Components.Authorization.dll": "sha256-4t95EBOqLHdV5gYitN1qhPAxGJ19RvI7Kl9xNVNyTR0=",
