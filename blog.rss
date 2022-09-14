@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <atom:link rel="self" type="application/rss+xml" href="https://lukeparker.dev/blog" />
+    <atom:link rel="self" type="application/rss+xml" href="https://lukeparker.dev/blog.rss" />
     <title>LukeParkerDev</title>
-    <link>https://lukeparker.dev/blog</link>
+    <link>https://lukeparker.dev/blog.rss</link>
     <description>My personal website acting as a personal portfolio as well as a blog to share my knowledge.</description>
     <copyright>(c) 2022</copyright>
     <language>en-au</language>
@@ -12,7 +12,7 @@
       <link>https://lukeparker.dev/blog/blazor-wasm-seo</link>
       <description>A quick and painless guide to fixing your Blazor WASM SEO.</description>
       <author>lukeparkerdev@outlook.com (Luke Parker)</author>
-      <guid>blazor-wasm-seo</guid>
+      <guid>https://lukeparker.dev/blog/blazor-wasm-seo</guid>
       <pubDate>Thu, 08 Sep 2022 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -20,7 +20,7 @@
       <link>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/0</link>
       <description>An introduction to the series, and what exactly an 'OKR' is.</description>
       <author>lukeparkerdev@outlook.com (Luke Parker)</author>
-      <guid>building-a-beautiful-okr-with-antblazor/0</guid>
+      <guid>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/0</guid>
       <pubDate>Mon, 01 Feb 2021 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -28,7 +28,7 @@
       <link>https://lukeparker.dev/blog/rapid-development-with-marten-db</link>
       <description>Building a personal project can be exciting, but it can also be a lot of work. In this post, I will go over how to use Marten DB to quickly build a backend for your project.</description>
       <author>lukeparkerdev@outlook.com (Luke Parker)</author>
-      <guid>rapid-development-with-marten-db</guid>
+      <guid>https://lukeparker.dev/blog/rapid-development-with-marten-db</guid>
       <pubDate>Tue, 13 Sep 2022 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -36,7 +36,7 @@
       <link>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/1</link>
       <description>Setup the project boilerplate, the get DevOps working with Docker, Docker-Compose, GitHub Actions, Cloudflare, NGINX and your VPS of choice!</description>
       <author>lukeparkerdev@outlook.com (Luke Parker)</author>
-      <guid>building-a-beautiful-okr-with-antblazor/1</guid>
+      <guid>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/1</guid>
       <pubDate>Tue, 02 Feb 2021 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -44,7 +44,7 @@
       <link>https://lukeparker.dev/blog/why-I-switched-to-Rider-from-vs-for-csharp-development</link>
       <description>An overview of what drove me away from Visual Studio - and my first impressions of Rider.</description>
       <author>lukeparkerdev@outlook.com (Luke Parker)</author>
-      <guid>why-I-switched-to-Rider-from-vs-for-csharp-development</guid>
+      <guid>https://lukeparker.dev/blog/why-I-switched-to-Rider-from-vs-for-csharp-development</guid>
       <pubDate>Thu, 07 Jan 2021 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -52,7 +52,7 @@
       <link>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/2</link>
       <description>Building out the backend with core models and repository interfaces. Then, we mock the data for UI building!</description>
       <author>lukeparkerdev@outlook.com (Luke Parker)</author>
-      <guid>building-a-beautiful-okr-with-antblazor/2</guid>
+      <guid>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/2</guid>
       <pubDate>Thu, 04 Feb 2021 00:00:00 GMT</pubDate>
     </item>
     <item>
@@ -60,7 +60,7 @@
       <link>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/3</link>
       <description>Building out the frontend with AntBlazor components.</description>
       <author>lukeparkerdev@outlook.com (Luke Parker)</author>
-      <guid>building-a-beautiful-okr-with-antblazor/3</guid>
+      <guid>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/3</guid>
       <pubDate>Wed, 25 Aug 2021 00:00:00 GMT</pubDate>
     </item>
   </channel>
