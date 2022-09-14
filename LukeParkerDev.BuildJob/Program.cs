@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text;
 using System.Text.Json;
 using LukeParkerDev.BuildJob;
 using LukeParkerDev.Blog.Models;
@@ -100,7 +101,10 @@ var rssPath = currentCodeDirectory + "/../LukeParkerDev.Web/wwwroot/blog.rss";
 
 Console.WriteLine("Saving");
 
-var rssSerialized = feed.Serialize();
+var rssSerialized = feed.Serialize(new SerializeOption
+{
+    Encoding = Encoding.UTF8
+});
 
 File.Delete(rssPath);
 await using var rssTextWriter = File.CreateText(rssPath);
