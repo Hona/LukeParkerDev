@@ -81,7 +81,7 @@ var feed = new Feed
 {
     Title = "LukeParkerDev",
     Description = "My personal website acting as a personal portfolio as well as a blog to share my knowledge.",
-    Link = new Uri("https://lukeparker.dev/blog"),
+    Link = new Uri("https://lukeparker.dev/blog.rss"),
     Copyright = "(c) 2022",
     Language = "en-au"
 };
@@ -91,9 +91,9 @@ feed.Items = index.Select(x => new Item
     Title = x.Frontmatter.title,
     Body = x.Frontmatter.hook,
     Link = new Uri(baseUri, $"/blog/{x.Frontmatter.slug}"),
-    Permalink = x.Frontmatter.slug,
+    Permalink = new Uri(baseUri, $"/blog/{x.Frontmatter.slug}").ToString(),
     PublishDate = DateTime.ParseExact(x.Frontmatter.date, "yyyy-MM-dd", DateTimeFormatInfo.CurrentInfo),
-    Author = new Author { Name = "Luke Parker", Email = "lukeparkerdev@outlook.com" }
+    Author = new Author { Name = "Luke Parker", Email = "lukeparkerdev@outlook.com" },
 }).ToList();
 
 
