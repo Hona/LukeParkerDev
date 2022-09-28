@@ -1,0 +1,114 @@
+﻿@page "/fun/clicker"
+
+@implements IDisposable
+
+@inject ISnackbar Snackbar
+
+<MudGrid Class="mt-4">
+    <MudItem xs="12" sm="8">
+        <MudText Typo="Typo.h3" Class="mb-4">MudClicker</MudText>
+        
+        <div class="d-flex gap-4">
+            <MudAlert Severity="Severity.Info" Icon="@Icons.Custom.Brands.MudBlazor">@_player.MudCurrency.ToString("F2")</MudAlert>
+            <MudAlert Severity="Severity.Info">Click Land Chance: @_player.ClickLandChance.ToString("P")</MudAlert>
+        </div>
+        
+        <MudButton Size="Size.Large" Class="my-8" Variant="Variant.Filled" Color="Color.Secondary" OnClick="HandleClick">MudClick</MudButton>
+        @if (_clickIntervalStart is not null)
+        {
+            <MudProgressLinear Color="Color.Secondary" 
+                               Min="0" 
+                               Max="_player.ClickInterval.TotalMilliseconds" 
+                               Value="@((DateTime.Now - _clickIntervalStart.Value).TotalMilliseconds)"/>
+        }
+
+    </MudItem>
+    <MudItem xs="12" sm="4">
+        <MudCard>
+            <MudText Class="py-6 px-4" Typo="Typo.h5" Color="Color.Tertiary">
+                Skills
+            </MudText>
+        
+            <MudList>
+                <MudListItem Avatar="@Icons.Material.Filled.AdsClick">
+                    <div class="d-flex justify-space-between">
+                        Click
+                        <MudText Typo="Typo.subtitle2">
+                            Lvl: 52
+                        </MudText>
+                    </div>
+                    <MudProgressLinear Color="Color.Tertiary" Class="mt-2" Min="0" Max="100" Value="58"/>
+                </MudListItem>
+                <MudListItem Avatar="@Icons.Material.Filled.Work">
+                    Work
+                </MudListItem>
+                <MudListItem Avatar="@Icons.Material.Filled.Umbrella">
+                    Vacation
+                </MudListItem>
+            </MudList>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code {
+    private Random _random = new();
+
+    private Player _player = new();
+
+    private DateTime? _clickIntervalStart;
+
+    private Timer _redrawTimer = null!;
+    
+    protected override void OnInitialized()
+    {
+        _redrawTimer = new Timer(RedrawTimerCallback, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(100));
+    }
+    
+    private void RedrawTimerCallback(object? state)
+    {
+        StateHasChanged();
+    }
+
+    private async Task HandleClick()
+    {
+        if (_clickIntervalStart.HasValue)
+        {
+            return;
+        }
+        
+        _clickIntervalStart = DateTime.Now;
+        
+        _player.TotalClicks++;
+
+        await Task.Delay(_player.ClickInterval);
+        
+        var clickLanded = _random.NextDouble() < _player.ClickLandChance;
+        if (clickLanded)
+        {
+            _player.MudCurrency += _player.ClickValue;
+            Snackbar.Add($"Click landed! Gained {_player.ClickValue} MudCurrency", Severity.Success);
+        }
+        else
+        {
+            Snackbar.Add("Click missed!", Severity.Warning);
+        }
+
+        _clickIntervalStart = null;
+    }
+
+    private class Player
+    {
+        public ulong TotalClicks { get; set; }
+
+        public decimal ClickValue { get; set; } = 1;
+        public double ClickLandChance { get; set; } = 0.05;
+        public TimeSpan ClickInterval { get; set; } = TimeSpan.FromSeconds(1);
+        
+        public decimal MudCurrency { get; set; }
+    }
+
+    public void Dispose()
+    {
+        _redrawTimer?.Dispose();
+    }
+}
