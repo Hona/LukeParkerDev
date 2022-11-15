@@ -8,12 +8,12 @@
     <copyright>(c) 2022</copyright>
     <language>en-au</language>
     <item>
-      <title>Blazor WASM SEO - You have a broken website according to Google!</title>
-      <link>https://lukeparker.dev/blog/blazor-wasm-seo</link>
-      <description>A quick and painless guide to fixing your Blazor WASM SEO.</description>
+      <title>Building a Beautiful OKR with AntBlazor - Part 2</title>
+      <link>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/2</link>
+      <description>Building out the backend with core models and repository interfaces. Then, we mock the data for UI building!</description>
       <author>lukeparkerdev@outlook.com (Luke Parker)</author>
-      <guid>https://lukeparker.dev/blog/blazor-wasm-seo</guid>
-      <pubDate>Thu, 08 Sep 2022 00:00:00 GMT</pubDate>
+      <guid>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/2</guid>
+      <pubDate>Thu, 04 Feb 2021 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Building a Beautiful OKR with AntBlazor - Part 0</title>
@@ -22,6 +22,30 @@
       <author>lukeparkerdev@outlook.com (Luke Parker)</author>
       <guid>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/0</guid>
       <pubDate>Mon, 01 Feb 2021 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Blazor WASM SEO - You have a broken website according to Google!</title>
+      <link>https://lukeparker.dev/blog/blazor-wasm-seo</link>
+      <description>A quick and painless guide to fixing your Blazor WASM SEO.</description>
+      <author>lukeparkerdev@outlook.com (Luke Parker)</author>
+      <guid>https://lukeparker.dev/blog/blazor-wasm-seo</guid>
+      <pubDate>Thu, 08 Sep 2022 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Why I switched to Rider from Visual Studio for C# Development</title>
+      <link>https://lukeparker.dev/blog/why-I-switched-to-Rider-from-vs-for-csharp-development</link>
+      <description>An overview of what drove me away from Visual Studio - and my first impressions of Rider.</description>
+      <author>lukeparkerdev@outlook.com (Luke Parker)</author>
+      <guid>https://lukeparker.dev/blog/why-I-switched-to-Rider-from-vs-for-csharp-development</guid>
+      <pubDate>Thu, 07 Jan 2021 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Building a Beautiful OKR with AntBlazor - Part 3</title>
+      <link>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/3</link>
+      <description>Building out the frontend with AntBlazor components.</description>
+      <author>lukeparkerdev@outlook.com (Luke Parker)</author>
+      <guid>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/3</guid>
+      <pubDate>Wed, 25 Aug 2021 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Rapid Backend Development with Marten DB</title>
@@ -38,30 +62,6 @@
       <author>lukeparkerdev@outlook.com (Luke Parker)</author>
       <guid>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/1</guid>
       <pubDate>Tue, 02 Feb 2021 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Why I switched to Rider from Visual Studio for C# Development</title>
-      <link>https://lukeparker.dev/blog/why-I-switched-to-Rider-from-vs-for-csharp-development</link>
-      <description>An overview of what drove me away from Visual Studio - and my first impressions of Rider.</description>
-      <author>lukeparkerdev@outlook.com (Luke Parker)</author>
-      <guid>https://lukeparker.dev/blog/why-I-switched-to-Rider-from-vs-for-csharp-development</guid>
-      <pubDate>Thu, 07 Jan 2021 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Building a Beautiful OKR with AntBlazor - Part 2</title>
-      <link>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/2</link>
-      <description>Building out the backend with core models and repository interfaces. Then, we mock the data for UI building!</description>
-      <author>lukeparkerdev@outlook.com (Luke Parker)</author>
-      <guid>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/2</guid>
-      <pubDate>Thu, 04 Feb 2021 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Building a Beautiful OKR with AntBlazor - Part 3</title>
-      <link>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/3</link>
-      <description>Building out the frontend with AntBlazor components.</description>
-      <author>lukeparkerdev@outlook.com (Luke Parker)</author>
-      <guid>https://lukeparker.dev/blog/building-a-beautiful-okr-with-antblazor/3</guid>
-      <pubDate>Wed, 25 Aug 2021 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
