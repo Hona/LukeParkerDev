@@ -457,3 +457,4 @@ $RECYCLE.BIN/
 
 # index generated at build
 LukeParkerDev.Blog/wwwroot/index.json
+node_modules
