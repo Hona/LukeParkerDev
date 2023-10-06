@@ -1,40 +1,39 @@
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="LibSassBuilder" Version="2.0.2" />
-        <PackageReference Include="Markdig" Version="0.30.2" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.8" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="6.0.8" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.8" PrivateAssets="all" />
-        <PackageReference Include="MudBlazor" Version="6.0.11" />
-        <PackageReference Include="MudBlazor.ThemeManager" Version="1.0.6" />
+        <PackageReference Include="Markdig" Version="0.33.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.11" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="7.0.11" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.11" PrivateAssets="all" />
+        <PackageReference Include="MudBlazor.ThemeManager" Version="1.0.8" />
     </ItemGroup>
 
-    <PropertyGroup>
-        <LibSassOutputStyle>compressed</LibSassOutputStyle>
-        <EnableDefaultSassItems>false</EnableDefaultSassItems>  
-    </PropertyGroup>
-    
-    <ItemGroup>
-        <SassFile Include="wwwroot/css/styles.scss" />
-    </ItemGroup>
-    
     <ItemGroup>
       <_ContentIncludedByDefault Remove="wwwroot\sample-data\weather.json" />
       <_ContentIncludedByDefault Remove="wwwroot\uploads\antblazor-primary-button.PNG" />
       <_ContentIncludedByDefault Remove="wwwroot\uploads\blazor-error-ui.PNG" />
       <_ContentIncludedByDefault Remove="wwwroot\uploads\okr-initial-card.PNG" />
       <_ContentIncludedByDefault Remove="wwwroot\uploads\okr-layout.PNG" />
+      <_ContentIncludedByDefault Remove="Layouts\MainLayout.razor" />
+      <_ContentIncludedByDefault Remove="Layouts\Theme.razor" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\scss\app.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\scss\blog-markdown.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\scss\particle-container.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\scss\preload.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\styles.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\styles.scss" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\interop.js" />
     </ItemGroup>
     
     <ItemGroup>
       <ProjectReference Include="..\LukeParkerDev.Blog\LukeParkerDev.Blog.csproj" />
+      <ProjectReference Include="..\LukeParkerDev.Web.SharedUI\LukeParkerDev.Web.SharedUI.csproj" />
     </ItemGroup>
     
     <ItemGroup>
