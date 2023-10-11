@@ -1,5 +1,4 @@
 +++
-categories: ["Development"]
 date: 2022-09-08
 slug: "blazor-wasm-seo"
 tags: ["C#", "Blazor", "MudBlazor", "SEO", "WASM", "Googlability"]

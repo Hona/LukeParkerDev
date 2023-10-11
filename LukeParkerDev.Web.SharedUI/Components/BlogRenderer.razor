@@ -1,0 +1,26 @@
+﻿@using Markdig
+@using Microsoft.JSInterop
+
+@inject IJSRuntime JS
+
+<SeoHeader Title="@Blog.Frontmatter.title" Overview="@Blog.Frontmatter.hook" Keywords="Blog.Frontmatter.series.Concat(Blog.Frontmatter.tags)" />
+
+<MudText Typo="Typo.h3">@Blog.Frontmatter.title</MudText>
+<MudText Typo="Typo.subtitle2">@Blog.Frontmatter.date</MudText>
+<div style="display: flex; justify-content: center; align-items: center; width: 100%">
+    <BlogChipList Frontmatter="Blog.Frontmatter"/>
+</div>
+
+<div class="blog-markdown">
+    @(new MarkupString(Markdown.ToHtml(Blog.Markdown)))
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public BlogPost Blog { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JS.InvokeVoidAsync("highlightBlogPostCode");
+    }
+}

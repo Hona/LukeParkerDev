@@ -1,3 +1,150 @@
 ﻿@page "/"
+@using LukeParkerDev.Blog.Models
+@using LukeParkerDev.Blog.Services
+@using Markdig.Helpers
+@using Microsoft.AspNetCore.Components.Forms
+@using YamlDotNet.Serialization
+@using YamlDotNet.Serialization.NamingConventions
 
-<MudText Typo="Typo.h3">Hello, world!</MudText>
+@inject IJSRuntime JS
+
+<MudStack Row>
+    <MudFileUpload T="IBrowserFile" 
+                   FilesChanged="UploadFiles">
+        <ButtonTemplate>
+            <MudButton HtmlTag="label"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       StartIcon="@Icons.Material.Filled.CloudUpload"
+                       for="@context">
+                Open File
+            </MudButton>
+        </ButtonTemplate>
+    </MudFileUpload>
+    
+    <MudButton OnClick="Download">
+        Download
+    </MudButton>
+</MudStack>
+
+@if (!string.IsNullOrWhiteSpace(_error))
+{
+    <MudAlert Severity="Severity.Error">
+        @_error
+    </MudAlert>
+}
+
+<MudStack Row>
+    <MudItem xs="6" md="6">
+        <FrontmatterForm @bind-Frontmatter="@Frontmatter"/>
+        
+        <MudTextField T="string"
+                      Class="markdown-live-editor"
+                      Lines="30"
+                      @bind-Text="@RawMarkdown"
+                      Immediate
+                      DebounceInterval="200"/>
+    </MudItem>
+    <MudItem xs="6" md="6">
+        <div>
+            <BlogRenderer Blog="_blog"/>
+        </div>
+    </MudItem>
+</MudStack>
+
+@code
+{
+    private BlogFrontmatter Frontmatter
+    {
+        get => _frontmatter;
+        set
+        {
+            _frontmatter = value;
+            
+            UpdateBlogPostEntity();
+        }
+    }
+
+    private string RawMarkdown
+    {
+        get => _rawMarkdown;
+        set
+        {
+            _rawMarkdown = value;
+            
+            UpdateBlogPostEntity();
+        }
+    }
+
+    private string _lastRenderedBlogText = string.Empty;
+
+    private string GetBlogAsFile()
+    {
+        return "+++" + Environment.NewLine + 
+               _yamlSerializer.Serialize(_frontmatter) + 
+               "+++" + Environment.NewLine + Environment.NewLine + 
+               RawMarkdown;
+    }
+    
+    private void UpdateBlogPostEntity()
+    {
+        try
+        {
+            var text = GetBlogAsFile();
+
+            if (_lastRenderedBlogText == text)
+            {
+                return;
+            }
+            
+            var blog = BlogService.ParseBlog(text);
+                
+            _error = null;
+            _blog = blog;
+            _lastRenderedBlogText = text;
+        }
+        catch (Exception e)
+        {
+            _error = e.Message;
+            _blog = new BlogPost();
+        }
+    }
+    
+    private static readonly ISerializer _yamlSerializer = new SerializerBuilder()
+        .WithNamingConvention(HyphenatedNamingConvention.Instance)
+        .Build();
+
+    private BlogPost _blog;
+
+    private string? _error = null;
+    private string _rawMarkdown;
+    private BlogFrontmatter _frontmatter = new BlogFrontmatter();
+
+    protected override void OnInitialized()
+    {
+        RawMarkdown = Placeholders.MarkdownPlaceholder;
+    }
+    
+    private async Task UploadFiles(IBrowserFile file)
+    {
+        using var reader = new StreamReader(file.OpenReadStream());
+        var text = await reader.ReadToEndAsync();
+
+        Console.WriteLine("Blog from file text: " + text);
+        var blogPost = BlogService.ParseBlog(text);
+        
+        // Suppress 2 rerenders
+        _frontmatter = blogPost.Frontmatter;
+        _rawMarkdown = blogPost.Markdown;
+        UpdateBlogPostEntity();
+        StateHasChanged();
+    }
+
+    private async Task Download()
+    {
+        var filename = $"{_frontmatter.date}_{_frontmatter.slug}.md";
+        var data = GetBlogAsFile();
+
+        await JS.InvokeVoidAsync("saveAsFile", filename, data);
+    }
+}

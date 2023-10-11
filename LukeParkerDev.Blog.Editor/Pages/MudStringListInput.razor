@@ -1,0 +1,61 @@
+﻿<MudStack>
+    <MudTextField @bind-Value="CurrentTag" 
+                  T="string"
+                  Label="@Label"
+                  Adornment="Adornment.End" 
+                  AdornmentIcon="@Icons.Material.Filled.Add" 
+                  AdornmentColor="Color.Primary"
+                  OnAdornmentClick="AddTag" />
+
+    <MudStack Row Class="flex-wrap">
+        @foreach (var tag in Tags)
+        {
+            <MudChip Color="Color.Primary"
+                     CloseIcon="@Icons.Material.Filled.Close"
+                     OnClose="@(async () => await RemoveTag(tag))">
+                @tag
+            </MudChip>
+        }
+    </MudStack>
+</MudStack>
+
+@code {
+
+    [Parameter]
+    public List<string> Tags { get; set; } = null!;
+    
+    [Parameter]
+    public EventCallback<List<string>> TagsChanged { get; set; }
+    
+    [Parameter]
+    public string? Label { get; set; }
+
+    private string CurrentTag { get; set; } = string.Empty;
+
+    private async Task AddTag()
+    {
+        if(!string.IsNullOrWhiteSpace(CurrentTag) && !Tags.Contains(CurrentTag))
+        {
+            Tags.Add(CurrentTag);
+            CurrentTag = string.Empty;
+
+            await InvokeTagsChanged();
+        }
+    }
+
+    private async Task RemoveTag(string tag)
+    {
+        if(Tags.Contains(tag))
+        {
+            Tags.Remove(tag);
+        }
+        
+        await InvokeTagsChanged();
+    }
+
+    private async Task InvokeTagsChanged()
+    {
+        await TagsChanged.InvokeAsync(Tags);
+    }
+
+}

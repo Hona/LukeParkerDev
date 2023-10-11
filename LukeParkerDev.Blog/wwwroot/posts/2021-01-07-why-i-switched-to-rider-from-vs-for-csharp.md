@@ -3,7 +3,6 @@ date: "2021-01-07"
 title: "Why I switched to Rider from Visual Studio for C# Development"
 slug: "why-I-switched-to-Rider-from-vs-for-csharp-development"
 tags: ["Rider", "Visual Studio", "C#"]
-categories: ["Development"]
 series: []
 hook: "An overview of what drove me away from Visual Studio - and my first impressions of Rider."
 +++

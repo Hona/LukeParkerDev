@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Markdig" Version="0.33.0" />
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.11"/>
         <PackageReference Include="MudBlazor" Version="6.10.0" />
         <PackageReference Include="LibSassBuilder" Version="3.0.0" />
@@ -24,5 +25,9 @@
 
     <ItemGroup>
         <SassFile Include="wwwroot/css/styles.scss" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LukeParkerDev.Blog\LukeParkerDev.Blog.csproj" />
     </ItemGroup>
 </Project>

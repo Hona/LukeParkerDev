@@ -14,7 +14,7 @@ public class BlogService
     private IReadOnlyList<BlogIndex>? _cachedIndex;
     private DateTime? _cacheExpiry;
     
-    private readonly IDeserializer _yamlDeserializer = new DeserializerBuilder()
+    private static readonly IDeserializer _yamlDeserializer = new DeserializerBuilder()
         .WithNamingConvention(HyphenatedNamingConvention.Instance)
         .Build();
     
@@ -67,14 +67,17 @@ public class BlogService
         return ParseBlog(blogRaw);
     }
 
-    public BlogPost ParseBlog(string blogRaw)
+    public static BlogPost ParseBlog(string blogRaw)
     {
         var sections = blogRaw.Split("+++");
 
         // Less than 3 sections than this blog is probably an empty file, or invalid possibly - either way its malformed
-        if (sections.Length < 3)
+        if (sections.Length < 3 || string.IsNullOrWhiteSpace(sections[1]))
         {
-            return new BlogPost();
+            return new BlogPost()
+            {
+                Markdown = blogRaw
+            };
         }
         
         var yamlSection = sections[1];

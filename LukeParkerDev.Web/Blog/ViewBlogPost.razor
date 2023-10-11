@@ -1,8 +1,5 @@
 ﻿@page "/blog/{*Slug}"
 
-@using Markdig
-@using LukeParkerDev.Web.Blog.Components
-
 @inject IJSRuntime JS
 @inject BlogService BlogService
 @inject NavigationManager NavigationManager
@@ -15,17 +12,7 @@
     }
     else if (_blog is not null)
     {
-        <SeoHeader Title="@_blog.Frontmatter.title" Overview="@_blog.Frontmatter.hook" Keywords="_blog.Frontmatter.categories.Concat(_blog.Frontmatter.series).Concat(_blog.Frontmatter.tags)" />
-
-        <MudText Typo="Typo.h3">@_blog.Frontmatter.title</MudText>
-        <MudText Typo="Typo.subtitle2">@_blog.Frontmatter.date</MudText>
-        <div style="display: flex; justify-content: center; align-items: center; width: 100%">
-            <BlogChipList Frontmatter="_blog.Frontmatter"/>
-        </div>
-
-        <div class="blog-markdown">
-            @(new MarkupString(Markdown.ToHtml(_blog.Markdown)))
-        </div>
+        <BlogRenderer Blog="_blog"/>
         
         <MudDivider Class="my-6" />
         
@@ -60,7 +47,7 @@
     {
         if (!_loading && _blog is not null)
         {
-            await JS.InvokeVoidAsync("highlightBlogPostCode");
+            
             await JS.InvokeVoidAsync("loadDisqus", NavigationManager.Uri, _blog.Frontmatter.slug, _blog.Frontmatter.title);
         }
     }

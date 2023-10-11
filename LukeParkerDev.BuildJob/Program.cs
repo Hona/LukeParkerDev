@@ -17,7 +17,6 @@ var postsDirectory = currentCodeDirectory + "/../LukeParkerDev.Blog/wwwroot/post
 
 var blogPaths = Directory.GetFiles(postsDirectory, "*.md", SearchOption.AllDirectories);
 
-var blogService = new BlogService(null!);
 
 var index = new List<BlogIndex>();
 
@@ -25,7 +24,7 @@ foreach (var blogPath in blogPaths)
 {
     var blogString = await File.ReadAllTextAsync(blogPath);
 
-    var blog = blogService.ParseBlog(blogString);
+    var blog = BlogService.ParseBlog(blogString);
 
     var blogIndex = new BlogIndex
     {

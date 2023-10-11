@@ -30,3 +30,17 @@ h1:focus {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.markdown-live-editor textarea {
+    font-family: Consolas, serif !important;
+    color: white !important;
+    outline: #26547c solid 3px !important;
+    border-radius: 5px !important;
+    padding: 1rem !important;
+    background: var(--mud-palette-appbar-background) !important;
+}
+
+.markdown-live-editor .mud-input.mud-input-underline:before,
+.markdown-live-editor .mud-input.mud-input-underline:after {
+    display:none!important;
+}

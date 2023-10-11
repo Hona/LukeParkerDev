@@ -1,0 +1,95 @@
+﻿@using LukeParkerDev.Blog.Models
+@using System.Text.Json
+
+<MudCard Class="my-4">
+    <MudStack>
+        <MudTextField Label="Title"
+                      T="string"
+                      Text="@Frontmatter.title"
+                      TextChanged="HandleTitleChanged"
+                      Immediate
+                      DebounceInterval="200"
+                      />
+        
+        <MudDatePicker Label="Date"
+                       Text="@Frontmatter.date"
+                       TextChanged="HandleDateChanged"
+                       DateFormat="yyyy-MM-dd"/>
+        
+        <MudStringListInput Label="Series"
+                            Tags="@Frontmatter.series"
+                            TagsChanged="InvokeFrontmatterChanged"/>
+
+        <MudStringListInput Label="Tags"
+                            Tags="@Frontmatter.tags"
+                            TagsChanged="InvokeFrontmatterChanged"/>
+
+        <MudDivider />
+        
+        <MudTextField Label="Hook"
+                      T="string"
+                      Text="@Frontmatter.hook"
+                      TextChanged="HandleHookChanged"/>
+        
+        <MudTextField Label="Slug"
+                      T="string"
+                      Text="@Frontmatter.slug"
+                      TextChanged="HandleSlugChanged"/>
+        
+        <MudTextField Label="Preview Image URL"
+                      T="string"
+                      Text="@Frontmatter.imageUrl"
+                      TextChanged="HandleImageUrlChanged"/>
+    </MudStack>
+</MudCard>
+
+@code {
+    [Parameter]
+    public BlogFrontmatter Frontmatter { get; set; }
+    
+    [Parameter]
+    public EventCallback<BlogFrontmatter> FrontmatterChanged { get; set; }
+    
+    private async Task InvokeFrontmatterChanged()
+    {
+        Console.WriteLine("Invoking Frontmatter Changed");
+        await FrontmatterChanged.InvokeAsync(Frontmatter);
+    }
+    
+    private async Task HandleTitleChanged(string title)
+    {
+        if (Frontmatter.title == title) return;
+        Frontmatter.title = title;
+        await InvokeFrontmatterChanged();
+    }
+    
+    private async Task HandleDateChanged(string date)
+    {
+        if (string.IsNullOrWhiteSpace(date)) date = DateTime.Today.ToString("yyyy-MM-dd");
+        if (Frontmatter.date == date) return;
+        Frontmatter.date = date;
+        await InvokeFrontmatterChanged();
+    }
+    
+
+    private async Task HandleHookChanged(string hook)
+    {
+        if (Frontmatter.hook == hook) return;
+        Frontmatter.hook = hook;
+        await InvokeFrontmatterChanged();
+    }
+
+    private async Task HandleSlugChanged(string slug)
+    {
+        if (Frontmatter.slug == slug) return;
+        Frontmatter.slug = slug;
+        await InvokeFrontmatterChanged();
+    }
+
+    private async Task HandleImageUrlChanged(string imageUrl)
+    {
+        if (Frontmatter.imageUrl == imageUrl) return;
+        Frontmatter.imageUrl = imageUrl;
+        await InvokeFrontmatterChanged();
+    }
+}

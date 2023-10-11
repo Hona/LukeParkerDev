@@ -1,5 +1,4 @@
 +++
-categories: ["Development"]
 date: 2022-09-13
 slug: "rapid-development-with-marten-db"
 tags: ["C#", "Database", "Marten", "DDD", "Document Store", "NoSQL", "Minimal API", "MediatR"]
